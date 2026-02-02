@@ -87,11 +87,14 @@ const Index = () => {
           </p>
           
           {/* Main headline with icon */}
-          <h1 className="section-title mb-8 animate-fade-in">
+          <h1 className="section-title mb-8 animate-fade-in text-center">
             <span className="flex items-center justify-center gap-3 mb-2">
               <span>{language === 'en' ? 'Your' : 'Ваш'}</span>
               <img src={triangleHeroLogo} alt="Triangle" className="w-16 h-16 md:w-20 md:h-20 object-contain" />
-              <span className="gradient-text">{language === 'en' ? 'trusted' : 'надежный'}</span>
+              <span className="trusted-text-wrapper">
+                <span className="gradient-text">{language === 'en' ? 'trusted' : 'надежный'}</span>
+                <span className="trusted-shine" aria-hidden="true">{language === 'en' ? 'trusted' : 'надежный'}</span>
+              </span>
             </span>
             <span className="block">{language === 'en' ? 'companion' : 'помощник'}</span>
           </h1>
