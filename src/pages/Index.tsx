@@ -169,7 +169,7 @@ const Index = () => {
                 <div 
                   className="absolute -inset-8 rounded-full backdrop-blur-xl overflow-hidden"
                   style={{
-                    background: 'radial-gradient(circle, hsl(var(--background) / 0.8) 0%, hsl(var(--background) / 0.2) 100%)'
+                    background: 'radial-gradient(circle, hsl(var(--background) / 0.8) 0%, hsl(var(--background) / 0.5) 50%, hsl(var(--background) / 0.15) 80%, transparent 100%)'
                   }}
                 >
                   {/* Noise overlay */}
