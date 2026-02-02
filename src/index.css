@@ -232,34 +232,7 @@
   }
 }
 
-/* Gold edge glow animation for stroke */
-/* Trusted text with shine stroke animation */
-.trusted-svg {
-  height: 1.25em;
-  width: auto;
-  overflow: visible;
-  vertical-align: baseline;
-  margin-top: -0.05em;
-  margin-bottom: -0.1em;
-}
-
-.trusted-text-base {
-  font-size: 42px;
-  font-weight: 700;
-  font-family: 'Inter', system-ui, sans-serif;
-  fill: url(#text-fill-gradient);
-}
-
-.trusted-shine-stroke {
-  font-size: 42px;
-  font-weight: 700;
-  font-family: 'Inter', system-ui, sans-serif;
-  fill: none;
-  stroke: url(#teal-shine);
-  stroke-width: 0.8;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
+/* Trusted text styles removed - using gradient-text class instead */
 
 /* Footer blur effect */
 .footer-blur {
