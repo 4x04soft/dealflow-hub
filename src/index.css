@@ -244,14 +244,14 @@
 }
 
 .trusted-text-base {
-  font-size: 44px;
+  font-size: 45px;
   font-weight: 700;
   font-family: 'Inter', system-ui, sans-serif;
   fill: url(#text-fill-gradient);
 }
 
 .trusted-shine-stroke {
-  font-size: 44px;
+  font-size: 45px;
   font-weight: 700;
   font-family: 'Inter', system-ui, sans-serif;
   fill: none;
