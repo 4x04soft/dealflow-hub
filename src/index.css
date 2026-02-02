@@ -143,36 +143,66 @@
     background-image: var(--gradient-text);
   }
 
-  /* Monochrome edge glow text effect */
-  .mono-edge-glow {
+  /* Golden edge glow text effect */
+  .golden-edge-glow {
     position: relative;
     color: transparent;
-    background: linear-gradient(90deg, hsl(0 0% 100%), hsl(0 0% 60%), hsl(0 0% 100%));
+    background: linear-gradient(90deg, hsl(45 100% 50%), hsl(35 100% 45%), hsl(45 100% 50%));
     -webkit-background-clip: text;
     background-clip: text;
+    -webkit-text-stroke: 2px transparent;
   }
 
-  .mono-edge-glow::before {
+  .golden-edge-glow::before {
     content: attr(data-text);
     position: absolute;
     left: 0;
     top: 0;
-    -webkit-text-stroke: 2px hsl(0 0% 70%);
+    -webkit-text-stroke: 3px hsl(45 100% 50%);
     color: transparent;
     z-index: -1;
-    filter: blur(1px) drop-shadow(0 0 6px hsl(0 0% 100% / 0.4));
+    animation: golden-glow-pulse 2s ease-in-out infinite;
+    filter: blur(2px);
   }
 
-  .mono-edge-glow::after {
+  .golden-edge-glow::after {
     content: attr(data-text);
     position: absolute;
     left: 0;
     top: 0;
-    background: linear-gradient(90deg, hsl(0 0% 40%), hsl(0 0% 90%), hsl(0 0% 40%));
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      hsl(45 100% 70%) 25%,
+      hsl(35 100% 80%) 50%,
+      hsl(45 100% 70%) 75%,
+      transparent 100%
+    );
+    background-size: 200% 100%;
     -webkit-background-clip: text;
     background-clip: text;
+    -webkit-text-stroke: 2px transparent;
     color: transparent;
     z-index: 1;
+    animation: golden-shimmer 3s linear infinite;
+  }
+
+  @keyframes golden-glow-pulse {
+    0%, 100% {
+      filter: blur(2px) drop-shadow(0 0 8px hsl(45 100% 50% / 0.6));
+    }
+    50% {
+      filter: blur(3px) drop-shadow(0 0 16px hsl(45 100% 60% / 0.9));
+    }
+  }
+
+  @keyframes golden-shimmer {
+    0% {
+      background-position: 200% 0;
+    }
+    100% {
+      background-position: -200% 0;
+    }
   }
 
   /* Phantom purple ghost icon */
