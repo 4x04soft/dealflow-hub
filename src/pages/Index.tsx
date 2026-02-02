@@ -5,6 +5,7 @@ import { ArrowRight, Wallet, Repeat, Shield, Bell, Coins, Flame, Tag, Zap } from
 import triangleHeroLogo from '@/assets/triangle-hero-logo.png';
 import { Footer } from '@/components/Footer';
 import WatercolorParticles from '@/components/WatercolorParticles';
+import ScrollReveal from '@/components/ScrollReveal';
 
 const Index = () => {
   const { language } = useLanguage();
@@ -81,12 +82,12 @@ const Index = () => {
   return (
     <div className="relative">
       {/* Hero Section - Phantom style */}
-      <section className="hero-glow min-h-[85vh] flex flex-col items-center justify-center px-4 pt-20 pb-32 relative overflow-hidden">
+      <section className="hero-glow min-h-[80vh] flex flex-col items-center justify-center px-4 pt-20 pb-16 relative overflow-hidden">
         {/* Watercolor particles animation */}
         <WatercolorParticles />
         
         {/* Smooth gradient transition to next section */}
-        <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-background via-background/50 to-transparent pointer-events-none z-20" />
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent pointer-events-none z-20" />
         
         <div className="container max-w-5xl mx-auto text-center relative z-10 pointer-events-none">
           {/* Tagline */}
@@ -153,12 +154,12 @@ const Index = () => {
       </section>
 
       {/* Feature Section 1 - Your Wallet */}
-      <section className="py-24 px-4">
+      <section className="py-16 px-4 -mt-8">
         <div className="container max-w-6xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left - Feature card visual */}
-            <div className="order-2 lg:order-1">
-              <div className="feature-card min-h-[400px] flex items-center justify-center">
+            <ScrollReveal direction="left" className="order-2 lg:order-1">
+              <div className="feature-card min-h-[380px] flex items-center justify-center">
                 <div className="text-center">
                   <div className="w-20 h-20 mx-auto mb-6 rounded-3xl bg-gradient-to-br from-primary to-accent flex items-center justify-center">
                     <Wallet className="h-10 w-10 text-primary-foreground" />
@@ -166,10 +167,10 @@ const Index = () => {
                   <h4 className="text-xl font-semibold">{language === 'en' ? 'Your Wallet' : 'Ваш Кошелек'}</h4>
                 </div>
               </div>
-            </div>
+            </ScrollReveal>
 
             {/* Right - Text content */}
-            <div className="order-1 lg:order-2 space-y-8">
+            <ScrollReveal direction="right" delay={0.1} className="order-1 lg:order-2 space-y-8">
               <div>
                 <p className="text-muted-foreground text-sm uppercase tracking-wider mb-3">
                   {language === 'en' ? 'Keep everything in one place' : 'Храните все в одном месте'}
@@ -197,17 +198,17 @@ const Index = () => {
                   </li>
                 ))}
               </ul>
-            </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>
 
       {/* Feature Section 2 - Your Tools */}
-      <section className="py-24 px-4 bg-secondary/30">
+      <section className="py-16 px-4 bg-secondary/30">
         <div className="container max-w-6xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left - Text content */}
-            <div className="space-y-8">
+            <ScrollReveal direction="left" className="space-y-8">
               <div>
                 <p className="text-muted-foreground text-sm uppercase tracking-wider mb-3">
                   {language === 'en' ? 'Powerful tools made for everyone' : 'Мощные инструменты для всех'}
@@ -235,11 +236,11 @@ const Index = () => {
                   </li>
                 ))}
               </ul>
-            </div>
+            </ScrollReveal>
 
             {/* Right - Feature card visual */}
-            <div>
-              <div className="feature-card min-h-[400px] flex items-center justify-center">
+            <ScrollReveal direction="right" delay={0.1}>
+              <div className="feature-card min-h-[380px] flex items-center justify-center">
                 <div className="text-center">
                   <div className="w-20 h-20 mx-auto mb-6 rounded-3xl bg-gradient-to-br from-accent to-primary flex items-center justify-center">
                     <Repeat className="h-10 w-10 text-primary-foreground" />
@@ -247,18 +248,18 @@ const Index = () => {
                   <h4 className="text-xl font-semibold">{language === 'en' ? 'Your Tools' : 'Ваши Инструменты'}</h4>
                 </div>
               </div>
-            </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>
 
       {/* Feature Section 3 - Your Security */}
-      <section className="py-24 px-4">
+      <section className="py-16 px-4">
         <div className="container max-w-6xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left - Feature card visual */}
-            <div>
-              <div className="feature-card min-h-[400px] flex items-center justify-center">
+            <ScrollReveal direction="left">
+              <div className="feature-card min-h-[380px] flex items-center justify-center">
                 <div className="text-center">
                   <div className="w-20 h-20 mx-auto mb-6 rounded-3xl bg-gradient-to-br from-primary to-accent flex items-center justify-center">
                     <Shield className="h-10 w-10 text-primary-foreground" />
@@ -266,10 +267,10 @@ const Index = () => {
                   <h4 className="text-xl font-semibold">{language === 'en' ? 'Your Security' : 'Ваша Безопасность'}</h4>
                 </div>
               </div>
-            </div>
+            </ScrollReveal>
 
             {/* Right - Text content */}
-            <div className="space-y-8">
+            <ScrollReveal direction="right" delay={0.1} className="space-y-8">
               <div>
                 <p className="text-muted-foreground text-sm uppercase tracking-wider mb-3">
                   {language === 'en' ? 'Controlled by you, secured by us' : 'Под вашим контролем, под нашей защитой'}
@@ -297,14 +298,14 @@ const Index = () => {
                   </li>
                 ))}
               </ul>
-            </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 px-4 bg-secondary/30">
-        <div className="container max-w-4xl mx-auto text-center">
+      <section className="py-16 px-4 bg-secondary/30">
+        <ScrollReveal direction="up" className="container max-w-4xl mx-auto text-center">
           <p className="text-muted-foreground text-sm uppercase tracking-wider mb-4">
             {language === 'en' ? 'Download Triangle' : 'Скачать Triangle'}
           </p>
@@ -323,7 +324,7 @@ const Index = () => {
               <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Button>
           </Link>
-        </div>
+        </ScrollReveal>
       </section>
 
       {/* Footer */}
