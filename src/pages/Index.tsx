@@ -9,29 +9,24 @@ const Index = () => {
 
   const walletFeatures = [
     {
-      icon: '🔗',
-      title: { en: 'Multiple chains, one wallet', ru: 'Множество сетей, один кошелек' },
-      description: { en: 'No more switching.', ru: 'Больше никаких переключений.' },
+      icon: <Shield className="h-5 w-5" />,
+      title: { en: 'Escrow-protected transactions', ru: 'Транзакции под защитой эскроу' },
+      description: { en: 'Your funds are safe until deal is complete.', ru: 'Ваши средства в безопасности до завершения сделки.' },
     },
     {
-      icon: '🖼️',
-      title: { en: 'Seamlessly access NFT marketplaces', ru: 'Легкий доступ к NFT маркетплейсам' },
-      description: { en: 'The largest ones.', ru: 'К крупнейшим.' },
+      icon: <Zap className="h-5 w-5" />,
+      title: { en: 'Powered by Stylus & Arbitrum', ru: 'На базе Stylus и Arbitrum' },
+      description: { en: 'Lightning-fast and low fees.', ru: 'Молниеносно и с низкими комиссиями.' },
     },
     {
-      icon: '✨',
-      title: { en: 'Showcase your NFT collection', ru: 'Демонстрируйте вашу NFT коллекцию' },
-      description: { en: '', ru: '' },
+      icon: <Wallet className="h-5 w-5" />,
+      title: { en: 'Connect any wallet', ru: 'Подключите любой кошелек' },
+      description: { en: 'MetaMask, WalletConnect, and more.', ru: 'MetaMask, WalletConnect и другие.' },
     },
     {
-      icon: '📊',
-      title: { en: 'Monitor activity with history', ru: 'Отслеживайте историю транзакций' },
-      description: { en: 'And notifications.', ru: 'И уведомления.' },
-    },
-    {
-      icon: '∞',
-      title: { en: 'No limits on tokens or transactions', ru: 'Без лимитов на токены и транзакции' },
-      description: { en: '', ru: '' },
+      icon: <Bell className="h-5 w-5" />,
+      title: { en: 'Real-time notifications', ru: 'Уведомления в реальном времени' },
+      description: { en: 'Stay updated on deal progress.', ru: 'Следите за ходом сделки.' },
     },
   ];
 
@@ -169,7 +164,9 @@ const Index = () => {
               <ul className="space-y-4">
                 {walletFeatures.map((feature, index) => (
                   <li key={index} className="flex items-start gap-4 group">
-                    <span className="text-2xl">{feature.icon}</span>
+                    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+                      {feature.icon}
+                    </div>
                     <div>
                       <p className="font-medium text-foreground group-hover:text-primary transition-colors">
                         {feature.title[language]}
