@@ -6,6 +6,7 @@ import triangleHeroLogo from '@/assets/triangle-hero-logo.png';
 import { Footer } from '@/components/Footer';
 import WatercolorParticles from '@/components/WatercolorParticles';
 import ScrollReveal from '@/components/ScrollReveal';
+import TiltCard from '@/components/TiltCard';
 import { motion } from 'framer-motion';
 
 const Index = () => {
@@ -288,14 +289,14 @@ const Index = () => {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left - Feature card visual */}
             <ScrollReveal direction="left" parallax parallaxSpeed={30} className="order-2 lg:order-1">
-              <div className="feature-card min-h-[400px] flex items-center justify-center">
-                <div className="text-center">
+              <TiltCard className="feature-card min-h-[400px] flex items-center justify-center relative">
+                <div className="text-center" style={{ transform: 'translateZ(40px)' }}>
                   <div className="w-20 h-20 mx-auto mb-6 rounded-3xl bg-gradient-to-br from-primary to-accent flex items-center justify-center">
                     <Wallet className="h-10 w-10 text-primary-foreground" />
                   </div>
                   <h4 className="text-xl font-semibold">{language === 'en' ? 'Your Wallet' : 'Ваш Кошелек'}</h4>
                 </div>
-              </div>
+              </TiltCard>
             </ScrollReveal>
 
             {/* Right - Text content */}
@@ -369,14 +370,14 @@ const Index = () => {
 
             {/* Right - Feature card visual */}
             <ScrollReveal direction="right" delay={0.15} parallax parallaxSpeed={30}>
-              <div className="feature-card min-h-[400px] flex items-center justify-center">
-                <div className="text-center">
+              <TiltCard className="feature-card min-h-[400px] flex items-center justify-center relative">
+                <div className="text-center" style={{ transform: 'translateZ(40px)' }}>
                   <div className="w-20 h-20 mx-auto mb-6 rounded-3xl bg-gradient-to-br from-accent to-primary flex items-center justify-center">
                     <Repeat className="h-10 w-10 text-primary-foreground" />
                   </div>
                   <h4 className="text-xl font-semibold">{language === 'en' ? 'Your Tools' : 'Ваши Инструменты'}</h4>
                 </div>
-              </div>
+              </TiltCard>
             </ScrollReveal>
           </div>
         </div>
@@ -388,14 +389,14 @@ const Index = () => {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left - Feature card visual */}
             <ScrollReveal direction="left" parallax parallaxSpeed={30}>
-              <div className="feature-card min-h-[400px] flex items-center justify-center">
-                <div className="text-center">
+              <TiltCard className="feature-card min-h-[400px] flex items-center justify-center relative">
+                <div className="text-center" style={{ transform: 'translateZ(40px)' }}>
                   <div className="w-20 h-20 mx-auto mb-6 rounded-3xl bg-gradient-to-br from-primary to-accent flex items-center justify-center">
                     <Shield className="h-10 w-10 text-primary-foreground" />
                   </div>
                   <h4 className="text-xl font-semibold">{language === 'en' ? 'Your Security' : 'Ваша Безопасность'}</h4>
                 </div>
-              </div>
+              </TiltCard>
             </ScrollReveal>
 
             {/* Right - Text content */}
