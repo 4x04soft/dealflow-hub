@@ -85,7 +85,7 @@ const Index = () => {
         {/* Watercolor particles animation */}
         <WatercolorParticles />
         
-        <div className="container max-w-5xl mx-auto text-center relative z-10">
+        <div className="container max-w-5xl mx-auto text-center relative z-10 pointer-events-none">
           {/* Tagline */}
           <p className="text-muted-foreground text-lg md:text-xl mb-6 animate-fade-in">
             {language === 'en' ? 'The crypto app for everyone' : 'Крипто-приложение для всех'}
@@ -136,7 +136,7 @@ const Index = () => {
           </h1>
           
           {/* CTA Button */}
-          <div className="animate-fade-in">
+          <div className="animate-fade-in pointer-events-auto">
             <Link to="/make-deal">
               <Button 
                 size="lg" 
