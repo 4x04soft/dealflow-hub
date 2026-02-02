@@ -196,7 +196,8 @@ const Index = () => {
                   {language === 'en' ? 'Powerful tools made for everyone' : 'Мощные инструменты для всех'}
                 </p>
                 <h2 className="section-title">
-                  <span className="gradient-text">{language === 'en' ? 'Web3 tools' : 'Web3 инструменты'}</span>
+                  <span className="gradient-text">{language === 'en' ? 'Your' : 'Ваши'}</span>{' '}
+                  {language === 'en' ? 'web3 tools' : 'web3 инструменты'}
                 </h2>
               </div>
 
