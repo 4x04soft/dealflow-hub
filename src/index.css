@@ -246,35 +246,15 @@
   fill: url(#text-fill-gradient);
 }
 
-.trusted-comet-stroke {
+.trusted-shine-stroke {
   font-size: 42px;
   font-weight: 700;
   font-family: 'Inter', system-ui, sans-serif;
   fill: none;
-  stroke: hsl(48 100% 65%);
-  stroke-width: 2;
+  stroke: url(#teal-shine);
+  stroke-width: 0.8;
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-dasharray: 12 800;
-  stroke-dashoffset: 50;
-  animation: comet-run 8s ease-in-out infinite;
-}
-
-@keyframes comet-run {
-  0% {
-    stroke-dashoffset: 50;
-    opacity: 0;
-  }
-  5% {
-    opacity: 1;
-  }
-  90% {
-    opacity: 1;
-  }
-  100% {
-    stroke-dashoffset: -550;
-    opacity: 0;
-  }
 }
 
 /* Footer blur effect */
