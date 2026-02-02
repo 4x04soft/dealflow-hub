@@ -4,8 +4,6 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight, Wallet, Repeat, Shield, Bell, Coins, Flame, Tag, Zap } from 'lucide-react';
 import triangleHeroLogo from '@/assets/triangle-hero-logo.png';
 import { Footer } from '@/components/Footer';
-import { ParticleBackground } from '@/components/ParticleBackground';
-
 const Index = () => {
   const { language } = useLanguage();
 
@@ -80,7 +78,6 @@ const Index = () => {
 
   return (
     <div className="relative">
-      <ParticleBackground />
       {/* Hero Section - Phantom style */}
       <section className="hero-glow min-h-[85vh] flex flex-col items-center justify-center px-4 pt-20 pb-16">
         <div className="container max-w-5xl mx-auto text-center relative z-10">
