@@ -143,6 +143,34 @@
     background-image: var(--gradient-text);
   }
 
+  /* Gold glow text effect */
+  .gold-glow-text {
+    -webkit-text-stroke: 1.5px hsl(45 93% 50%);
+    text-shadow: 
+      0 0 10px hsl(45 93% 50% / 0.8),
+      0 0 20px hsl(45 93% 50% / 0.6),
+      0 0 30px hsl(45 93% 50% / 0.4),
+      0 0 40px hsl(45 93% 50% / 0.3);
+    animation: gold-pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes gold-pulse {
+    0%, 100% {
+      text-shadow: 
+        0 0 10px hsl(45 93% 50% / 0.8),
+        0 0 20px hsl(45 93% 50% / 0.6),
+        0 0 30px hsl(45 93% 50% / 0.4),
+        0 0 40px hsl(45 93% 50% / 0.3);
+    }
+    50% {
+      text-shadow: 
+        0 0 15px hsl(45 93% 55% / 0.9),
+        0 0 30px hsl(45 93% 55% / 0.7),
+        0 0 45px hsl(45 93% 55% / 0.5),
+        0 0 60px hsl(45 93% 55% / 0.4);
+    }
+  }
+
   /* Phantom purple ghost icon */
   .phantom-icon {
     @apply inline-block w-20 h-20;
