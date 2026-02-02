@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Wallet, Repeat, Shield, Bell, Coins, Flame, Tag, Zap } from 'lucide-react';
+import triangleHeroLogo from '@/assets/triangle-hero-logo.png';
 
 const Index = () => {
   const { language } = useLanguage();
@@ -94,7 +95,7 @@ const Index = () => {
           <h1 className="section-title mb-8 animate-fade-in flex flex-col items-center gap-4">
             <span className="flex items-center justify-center gap-4 flex-wrap">
               <span>{language === 'en' ? 'Your' : 'Ваш'}</span>
-              <span className="phantom-icon"></span>
+              <img src={triangleHeroLogo} alt="Triangle" className="w-16 h-16 md:w-20 md:h-20 object-contain" />
               <span className="gradient-text">{language === 'en' ? 'trusted' : 'надежный'}</span>
             </span>
             <span>{language === 'en' ? 'companion' : 'помощник'}</span>
