@@ -154,7 +154,7 @@ const Index = () => {
             </div>
 
             {/* Right - Animated Logo */}
-            <div className="hidden md:flex flex-1 items-center justify-center">
+            <div className="hidden md:flex flex-1 items-center justify-center pointer-events-auto">
               <motion.div
                 initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
                 animate={{ opacity: 1, scale: 1, rotate: 0 }}
@@ -163,14 +163,17 @@ const Index = () => {
                   ease: [0.22, 1, 0.36, 1],
                   delay: 0.3
                 }}
-                className="relative"
+                className="relative z-30"
               >
+                {/* Background circle to block watercolor */}
+                <div className="absolute -inset-8 rounded-full bg-background/90 backdrop-blur-sm" />
+                
                 {/* Glow effect behind logo */}
                 <motion.div
-                  className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/30 to-accent/20 blur-3xl"
+                  className="absolute -inset-4 rounded-full bg-gradient-to-br from-primary/20 to-accent/10 blur-2xl"
                   animate={{ 
                     scale: [1, 1.2, 1],
-                    opacity: [0.5, 0.8, 0.5]
+                    opacity: [0.6, 0.9, 0.6]
                   }}
                   transition={{ 
                     duration: 4,
@@ -181,7 +184,7 @@ const Index = () => {
                 
                 {/* Rotating ring */}
                 <motion.div
-                  className="absolute -inset-8 rounded-full border border-primary/20"
+                  className="absolute -inset-8 rounded-full border border-primary/30"
                   animate={{ rotate: 360 }}
                   transition={{ 
                     duration: 20,
@@ -189,13 +192,13 @@ const Index = () => {
                     ease: "linear"
                   }}
                   style={{
-                    background: 'conic-gradient(from 0deg, transparent, hsl(174 72% 45% / 0.1), transparent)'
+                    background: 'conic-gradient(from 0deg, transparent, hsl(174 72% 45% / 0.15), transparent)'
                   }}
                 />
                 
                 {/* Second rotating ring */}
                 <motion.div
-                  className="absolute -inset-16 rounded-full border border-accent/10"
+                  className="absolute -inset-16 rounded-full border border-accent/15"
                   animate={{ rotate: -360 }}
                   transition={{ 
                     duration: 30,
@@ -222,10 +225,11 @@ const Index = () => {
                 
                 {/* Shadow under logo */}
                 <motion.div
-                  className="absolute bottom-0 left-1/2 -translate-x-1/2 w-32 lg:w-40 h-6 rounded-full bg-foreground/15 blur-xl"
+                  className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-40 lg:w-48 h-8 rounded-[50%] bg-foreground/20 blur-lg z-0"
                   animate={{
-                    scaleX: [1, 0.85, 1],
-                    opacity: [0.4, 0.25, 0.4]
+                    scaleX: [1, 0.8, 1],
+                    scaleY: [1, 0.7, 1],
+                    opacity: [0.5, 0.3, 0.5]
                   }}
                   transition={{
                     duration: 6,
