@@ -235,7 +235,7 @@
 /* Gold edge glow animation for stroke */
 /* Trusted text with shine stroke animation */
 .trusted-svg {
-  height: 1.25em;
+  height: 1.1em;
   width: auto;
   overflow: visible;
   vertical-align: baseline;
@@ -244,14 +244,14 @@
 }
 
 .trusted-text-base {
-  font-size: 42px;
+  font-size: 36px;
   font-weight: 700;
   font-family: 'Inter', system-ui, sans-serif;
   fill: url(#text-fill-gradient);
 }
 
 .trusted-shine-stroke {
-  font-size: 42px;
+  font-size: 36px;
   font-weight: 700;
   font-family: 'Inter', system-ui, sans-serif;
   fill: none;
