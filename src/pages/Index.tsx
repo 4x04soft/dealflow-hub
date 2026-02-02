@@ -3,6 +3,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Wallet, Repeat, Shield, Bell, Coins, Flame, Tag, Zap } from 'lucide-react';
 import triangleHeroLogo from '@/assets/triangle-hero-logo.png';
+import GoldEdgeGlow from '@/components/GoldEdgeGlow';
 
 const Index = () => {
   const { language } = useLanguage();
@@ -96,7 +97,7 @@ const Index = () => {
             <span className="flex items-center justify-center gap-4 flex-wrap">
               <span>{language === 'en' ? 'Your' : 'Ваш'}</span>
               <img src={triangleHeroLogo} alt="Triangle" className="w-16 h-16 md:w-20 md:h-20 object-contain" />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-foreground via-muted-foreground to-foreground gold-glow-text">{language === 'en' ? 'trusted' : 'надежный'}</span>
+              <GoldEdgeGlow><span className="gold-glow-text text-foreground">{language === 'en' ? 'trusted' : 'надежный'}</span></GoldEdgeGlow>
             </span>
             <span>{language === 'en' ? 'companion' : 'помощник'}</span>
           </h1>

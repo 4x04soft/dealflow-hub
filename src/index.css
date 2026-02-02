@@ -151,24 +151,77 @@
       0 0 20px hsl(45 93% 50% / 0.6),
       0 0 30px hsl(45 93% 50% / 0.4),
       0 0 40px hsl(45 93% 50% / 0.3);
-    animation: gold-pulse 2s ease-in-out infinite;
   }
 
-  @keyframes gold-pulse {
-    0%, 100% {
-      text-shadow: 
-        0 0 10px hsl(45 93% 50% / 0.8),
-        0 0 20px hsl(45 93% 50% / 0.6),
-        0 0 30px hsl(45 93% 50% / 0.4),
-        0 0 40px hsl(45 93% 50% / 0.3);
+  /* Gold Edge Glow - Animated border */
+  .gold-edge-glow-wrapper {
+    position: relative;
+    display: inline-block;
+    padding: 8px 20px;
+    border-radius: 16px;
+    background: hsl(var(--background) / 0.8);
+    overflow: hidden;
+  }
+
+  .gold-edge-glow-border {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 2px;
+    background: conic-gradient(
+      from var(--gold-glow-angle, 0deg),
+      transparent 0deg,
+      hsl(45 93% 50%) 30deg,
+      hsl(38 95% 60%) 60deg,
+      hsl(45 93% 50%) 90deg,
+      transparent 120deg,
+      transparent 360deg
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    animation: gold-edge-rotate 3s linear infinite;
+    filter: blur(0.5px);
+  }
+
+  .gold-edge-glow-border::after {
+    content: '';
+    position: absolute;
+    inset: -10px;
+    border-radius: inherit;
+    background: conic-gradient(
+      from var(--gold-glow-angle, 0deg),
+      transparent 0deg,
+      hsl(45 93% 50% / 0.6) 30deg,
+      hsl(38 95% 60% / 0.8) 60deg,
+      hsl(45 93% 50% / 0.6) 90deg,
+      transparent 120deg,
+      transparent 360deg
+    );
+    filter: blur(15px);
+    animation: gold-edge-rotate 3s linear infinite;
+    z-index: -1;
+  }
+
+  .gold-edge-glow-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  @keyframes gold-edge-rotate {
+    0% {
+      --gold-glow-angle: 0deg;
     }
-    50% {
-      text-shadow: 
-        0 0 15px hsl(45 93% 55% / 0.9),
-        0 0 30px hsl(45 93% 55% / 0.7),
-        0 0 45px hsl(45 93% 55% / 0.5),
-        0 0 60px hsl(45 93% 55% / 0.4);
+    100% {
+      --gold-glow-angle: 360deg;
     }
+  }
+
+  @property --gold-glow-angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
   }
 
   /* Phantom purple ghost icon */
