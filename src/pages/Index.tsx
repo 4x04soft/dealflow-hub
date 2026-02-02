@@ -208,12 +208,26 @@ const Index = () => {
                 <motion.img 
                   src={triangleHeroLogo} 
                   alt="Triangle" 
-                  className="w-48 h-48 lg:w-64 lg:h-64 object-contain relative z-10 drop-shadow-2xl"
+                  className="w-48 h-48 lg:w-64 lg:h-64 object-contain relative z-10"
                   animate={{ 
                     y: [0, -15, 0],
                     rotateY: [0, 5, 0, -5, 0]
                   }}
                   transition={{ 
+                    duration: 6,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                />
+                
+                {/* Shadow under logo */}
+                <motion.div
+                  className="absolute bottom-0 left-1/2 -translate-x-1/2 w-32 lg:w-40 h-6 rounded-full bg-foreground/15 blur-xl"
+                  animate={{
+                    scaleX: [1, 0.85, 1],
+                    opacity: [0.4, 0.25, 0.4]
+                  }}
+                  transition={{
                     duration: 6,
                     repeat: Infinity,
                     ease: "easeInOut"
