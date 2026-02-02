@@ -81,9 +81,12 @@ const Index = () => {
   return (
     <div className="relative">
       {/* Hero Section - Phantom style */}
-      <section className="hero-glow min-h-[85vh] flex flex-col items-center justify-center px-4 pt-20 pb-16 relative overflow-hidden">
+      <section className="hero-glow min-h-[85vh] flex flex-col items-center justify-center px-4 pt-20 pb-32 relative overflow-hidden">
         {/* Watercolor particles animation */}
         <WatercolorParticles />
+        
+        {/* Smooth gradient transition to next section */}
+        <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-background via-background/50 to-transparent pointer-events-none z-20" />
         
         <div className="container max-w-5xl mx-auto text-center relative z-10 pointer-events-none">
           {/* Tagline */}
