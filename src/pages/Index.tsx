@@ -91,7 +91,38 @@ const Index = () => {
             <span className="flex items-center justify-center gap-3 flex-wrap">
               <span>{language === 'en' ? 'Your' : 'Ваш'}</span>
               <img src={triangleHeroLogo} alt="Triangle" className="w-16 h-16 md:w-20 md:h-20 object-contain" />
-              <span className="trusted-glow-text">{language === 'en' ? 'trusted' : 'надежный'}</span>
+              <span className="trusted-text-wrapper">
+                <svg className="trusted-svg" viewBox="0 0 180 50" preserveAspectRatio="xMidYMid meet">
+                  <defs>
+                    <linearGradient id="text-fill-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="hsl(260 10% 25%)" />
+                      <stop offset="50%" stopColor="hsl(260 10% 55%)" />
+                      <stop offset="100%" stopColor="hsl(260 10% 25%)" />
+                    </linearGradient>
+                    <linearGradient id="stroke-glow-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="hsl(45 90% 50%)" />
+                      <stop offset="50%" stopColor="hsl(50 100% 70%)" />
+                      <stop offset="100%" stopColor="hsl(45 90% 50%)" />
+                    </linearGradient>
+                  </defs>
+                  <text 
+                    x="90" 
+                    y="38" 
+                    textAnchor="middle" 
+                    className="trusted-text-base"
+                  >
+                    {language === 'en' ? 'trusted' : 'надежный'}
+                  </text>
+                  <text 
+                    x="90" 
+                    y="38" 
+                    textAnchor="middle" 
+                    className="trusted-text-stroke"
+                  >
+                    {language === 'en' ? 'trusted' : 'надежный'}
+                  </text>
+                </svg>
+              </span>
             </span>
             <span>{language === 'en' ? 'companion' : 'помощник'}</span>
           </h1>

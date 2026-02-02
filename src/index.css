@@ -232,47 +232,53 @@
 }
 
 /* Gold edge glow animation for stroke */
-/* Trusted text glow animation */
-.trusted-glow-text {
-  position: relative;
-  background: linear-gradient(90deg, hsl(260 10% 30%), hsl(260 10% 60%), hsl(260 10% 30%));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+/* Trusted text with stroke glow animation */
+.trusted-text-wrapper {
+  display: inline-flex;
+  align-items: center;
+  height: 1.1em;
 }
 
-.trusted-glow-text::after {
-  content: '';
-  position: absolute;
-  top: -4px;
-  left: -4px;
-  right: -4px;
-  bottom: -4px;
-  background: linear-gradient(90deg, 
-    transparent 0%, 
-    transparent 35%, 
-    hsl(45 90% 55% / 0.9) 50%, 
-    transparent 65%, 
-    transparent 100%
-  );
-  background-size: 300% 100%;
-  animation: glow-sweep 3s ease-in-out infinite;
-  filter: blur(6px);
-  pointer-events: none;
-  z-index: -1;
+.trusted-svg {
+  height: 1.1em;
+  width: auto;
+  overflow: visible;
 }
 
-@keyframes glow-sweep {
+.trusted-text-base {
+  font-size: 42px;
+  font-weight: 700;
+  font-family: 'Inter', system-ui, sans-serif;
+  fill: url(#text-fill-gradient);
+}
+
+.trusted-text-stroke {
+  font-size: 42px;
+  font-weight: 700;
+  font-family: 'Inter', system-ui, sans-serif;
+  fill: none;
+  stroke: url(#stroke-glow-gradient);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 800;
+  stroke-dashoffset: 800;
+  animation: stroke-trace 4s ease-in-out infinite;
+  filter: drop-shadow(0 0 4px hsl(45 90% 55% / 0.7));
+}
+
+@keyframes stroke-trace {
   0% {
-    background-position: 100% 0;
-    opacity: 0.4;
+    stroke-dashoffset: 800;
+    filter: drop-shadow(0 0 3px hsl(45 90% 55% / 0.5));
   }
   50% {
-    opacity: 1;
+    stroke-dashoffset: 0;
+    filter: drop-shadow(0 0 8px hsl(45 90% 60% / 0.9));
   }
   100% {
-    background-position: -100% 0;
-    opacity: 0.4;
+    stroke-dashoffset: -800;
+    filter: drop-shadow(0 0 3px hsl(45 90% 55% / 0.5));
   }
 }
 
