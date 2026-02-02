@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Twitter, Send, MessageCircle, FileText, HelpCircle, Users, Shield, Mail } from 'lucide-react';
+import { MessageCircle, FileText, HelpCircle, Shield } from 'lucide-react';
 import triangleLogo from '@/assets/triangle-logo.png';
 
 export const Footer = () => {
@@ -30,26 +30,9 @@ export const Footer = () => {
   ];
 
   const socialLinks = [
-    {
-      title: 'Twitter',
-      href: 'https://twitter.com',
-      icon: <Twitter className="h-5 w-5" />,
-    },
-    {
-      title: 'Telegram',
-      href: 'https://t.me',
-      icon: <Send className="h-5 w-5" />,
-    },
-    {
-      title: 'Discord',
-      href: 'https://discord.com',
-      icon: <Users className="h-5 w-5" />,
-    },
-    {
-      title: 'Email',
-      href: 'mailto:support@triangle.app',
-      icon: <Mail className="h-5 w-5" />,
-    },
+    { title: 'X', href: 'https://x.com' },
+    { title: 'Telegram', href: 'https://t.me' },
+    { title: 'Discord', href: 'https://discord.com' },
   ];
 
   return (
@@ -71,7 +54,7 @@ export const Footer = () => {
               <div className="flex flex-col">
                 <span className="text-sm font-semibold">Triangle</span>
                 <span className="text-xs text-muted-foreground">
-                  © 2024 {language === 'en' ? 'All rights reserved' : 'Все права защищены'}
+                  © 2026 {language === 'en' ? 'All rights reserved' : 'Все права защищены'}
                 </span>
               </div>
             </div>
@@ -91,17 +74,16 @@ export const Footer = () => {
             </nav>
 
             {/* Social Links */}
-            <div className="flex items-center gap-1">
+            <div className="flex items-center gap-4">
               {socialLinks.map((link, index) => (
                 <a
                   key={index}
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2.5 rounded-lg text-muted-foreground hover:text-foreground hover:bg-foreground/5 transition-colors"
-                  aria-label={link.title}
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
-                  {link.icon}
+                  {link.title}
                 </a>
               ))}
             </div>
