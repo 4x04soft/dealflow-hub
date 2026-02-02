@@ -5,13 +5,14 @@ import { LanguageSwitcher } from './LanguageSwitcher';
 import { WalletModal } from './WalletModal';
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Menu, X, Search, ChevronDown, Triangle } from 'lucide-react';
+import { Menu, X, Search, ChevronDown } from 'lucide-react';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import triangleLogo from '@/assets/triangle-logo.png';
 
 const navLinks = [
   { 
@@ -67,9 +68,11 @@ export const Header = () => {
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2.5 group">
-            <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-lg shadow-primary/25">
-              <Triangle className="h-4 w-4 text-primary-foreground fill-current" />
-            </div>
+            <img 
+              src={triangleLogo} 
+              alt="Triangle" 
+              className="h-8 w-8 object-contain"
+            />
             <span className="text-xl font-bold text-foreground">Triangle</span>
           </Link>
 
