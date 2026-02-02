@@ -154,7 +154,7 @@ const Index = () => {
             </div>
 
             {/* Right - Animated Logo */}
-            <div className="hidden md:flex flex-1 items-center justify-center pointer-events-auto">
+            <div className="hidden md:flex flex-1 items-center justify-center">
               <motion.div
                 initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
                 animate={{ opacity: 1, scale: 1, rotate: 0 }}
