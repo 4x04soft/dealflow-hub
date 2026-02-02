@@ -108,7 +108,7 @@ const Index = () => {
                 size="lg" 
                 className="rounded-full px-8 py-6 text-base font-semibold bg-foreground text-background hover:bg-foreground/90 shadow-lg"
               >
-                {language === 'en' ? 'Download Triangle' : 'Скачать Triangle'}
+                {language === 'en' ? 'Connect Triangle' : 'Подключить Triangle'}
               </Button>
             </Link>
           </div>
@@ -267,7 +267,7 @@ const Index = () => {
       <section className="py-24 px-4 bg-secondary/30">
         <div className="container max-w-4xl mx-auto text-center">
           <p className="text-muted-foreground text-sm uppercase tracking-wider mb-4">
-            {language === 'en' ? 'Download Triangle' : 'Скачать Triangle'}
+            {language === 'en' ? 'Connect Triangle' : 'Подключить Triangle'}
           </p>
           <h2 className="section-title mb-4">
             {language === 'en' ? 'to get started' : 'чтобы начать'}
@@ -280,7 +280,7 @@ const Index = () => {
               size="lg" 
               className="rounded-full px-8 py-6 text-base font-semibold bg-foreground text-background hover:bg-foreground/90 shadow-lg gap-2 group"
             >
-              {language === 'en' ? 'Download Triangle' : 'Скачать Triangle'}
+              {language === 'en' ? 'Connect Triangle' : 'Подключить Triangle'}
               <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Button>
           </Link>
