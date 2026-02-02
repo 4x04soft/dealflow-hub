@@ -232,31 +232,48 @@
 }
 
 /* Gold edge glow animation for stroke */
-@keyframes gold-edge-glow {
+/* Trusted text glow animation */
+.trusted-glow-text {
+  position: relative;
+  background: linear-gradient(90deg, hsl(260 10% 30%), hsl(260 10% 60%), hsl(260 10% 30%));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.trusted-glow-text::after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    transparent 35%, 
+    hsl(45 90% 55% / 0.9) 50%, 
+    transparent 65%, 
+    transparent 100%
+  );
+  background-size: 300% 100%;
+  animation: glow-sweep 3s ease-in-out infinite;
+  filter: blur(6px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+@keyframes glow-sweep {
   0% {
-    stroke-dashoffset: 100%;
-    filter: drop-shadow(0 0 4px hsl(45 90% 50% / 0.6));
+    background-position: 100% 0;
+    opacity: 0.4;
   }
   50% {
-    filter: drop-shadow(0 0 12px hsl(45 90% 55% / 0.9));
+    opacity: 1;
   }
   100% {
-    stroke-dashoffset: -100%;
-    filter: drop-shadow(0 0 4px hsl(45 90% 50% / 0.6));
+    background-position: -100% 0;
+    opacity: 0.4;
   }
-}
-
-.trusted-text-container {
-  position: relative;
-  display: inline-block;
-}
-
-.trusted-text-svg {
-  overflow: visible;
-}
-
-.trusted-text-fill {
-  fill: url(#bw-gradient);
 }
 
 /* Footer blur effect */
@@ -264,14 +281,6 @@
   background: hsl(var(--background) / 0.7);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-}
-
-.trusted-text-stroke {
-  fill: none;
-  stroke: url(#gold-gradient);
-  stroke-width: 1.5;
-  stroke-dasharray: 100%;
-  animation: gold-edge-glow 3s ease-in-out infinite;
 }
 
 @layer utilities {
