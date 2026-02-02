@@ -96,7 +96,7 @@ const Index = () => {
             <span className="flex items-center justify-center gap-4 flex-wrap">
               <span>{language === 'en' ? 'Your' : 'Ваш'}</span>
               <img src={triangleHeroLogo} alt="Triangle" className="w-16 h-16 md:w-20 md:h-20 object-contain" />
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-foreground via-muted-foreground to-foreground">{language === 'en' ? 'trusted' : 'надежный'}</span>
+              <span className="gold-glow-border bg-clip-text text-transparent bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-500">{language === 'en' ? 'trusted' : 'надежный'}</span>
             </span>
             <span>{language === 'en' ? 'companion' : 'помощник'}</span>
           </h1>
