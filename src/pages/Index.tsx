@@ -4,6 +4,8 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight, Wallet, Repeat, Shield, Bell, Coins, Flame, Tag, Zap } from 'lucide-react';
 import triangleHeroLogo from '@/assets/triangle-hero-logo.png';
 import { Footer } from '@/components/Footer';
+import { WatercolorEffect } from '@/components/WatercolorEffect';
+
 const Index = () => {
   const { language } = useLanguage();
 
@@ -78,8 +80,13 @@ const Index = () => {
 
   return (
     <div className="relative">
+      {/* Watercolor effect zone - from hero to wallet section */}
+      <div className="absolute top-0 left-0 right-0 h-[180vh] overflow-hidden">
+        <WatercolorEffect />
+      </div>
+
       {/* Hero Section - Phantom style */}
-      <section className="hero-glow min-h-[85vh] flex flex-col items-center justify-center px-4 pt-20 pb-16">
+      <section className="hero-glow min-h-[85vh] flex flex-col items-center justify-center px-4 pt-20 pb-16 relative z-10">
         <div className="container max-w-5xl mx-auto text-center relative z-10">
           {/* Tagline */}
           <p className="text-muted-foreground text-lg md:text-xl mb-6 animate-fade-in">
