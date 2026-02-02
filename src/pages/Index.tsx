@@ -6,6 +6,7 @@ import triangleHeroLogo from '@/assets/triangle-hero-logo.png';
 import { Footer } from '@/components/Footer';
 import WatercolorParticles from '@/components/WatercolorParticles';
 import ScrollReveal from '@/components/ScrollReveal';
+import { motion } from 'framer-motion';
 
 const Index = () => {
   const { language } = useLanguage();
@@ -89,66 +90,159 @@ const Index = () => {
         {/* Smooth gradient transition to next section */}
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent pointer-events-none z-20" />
         
-        <div className="container max-w-5xl mx-auto text-center relative z-10 pointer-events-none -mt-16 ml-4 md:ml-8">
-          {/* Tagline */}
-          <p className="text-muted-foreground text-lg md:text-xl mb-6 animate-fade-in">
-            {language === 'en' ? 'The crypto app for everyone' : 'Крипто-приложение для всех'}
-          </p>
-          
-          {/* Main headline with icon */}
-          <h1 className="section-title mb-8 animate-fade-in flex flex-col items-center gap-4">
-            <span className="flex items-center justify-center flex-wrap">
-              <span>{language === 'en' ? 'Your' : 'Ваш'}</span>
-              <span className="inline-flex items-center ml-2">
-                <img src={triangleHeroLogo} alt="Triangle" className="w-16 h-16 md:w-20 md:h-20 object-contain" />
-                <svg className="trusted-svg -ml-2" viewBox="0 0 170 50" preserveAspectRatio="xMidYMid meet">
-                  <defs>
-                    <linearGradient id="text-fill-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                      <stop offset="0%" stopColor="hsl(260 10% 20%)" />
-                      <stop offset="50%" stopColor="hsl(260 10% 50%)" />
-                      <stop offset="100%" stopColor="hsl(260 10% 20%)" />
-                    </linearGradient>
-                    <linearGradient id="teal-shine" x1="100%" y1="0%" x2="0%" y2="100%">
-                      <stop offset="0%" stopColor="transparent">
-                        <animate attributeName="offset" values="-0.5;1.5" dur="4s" repeatCount="indefinite" />
-                      </stop>
-                      <stop offset="15%" stopColor="hsl(175 70% 50% / 0.8)">
-                        <animate attributeName="offset" values="-0.35;1.65" dur="4s" repeatCount="indefinite" />
-                      </stop>
-                      <stop offset="30%" stopColor="transparent">
-                        <animate attributeName="offset" values="-0.2;1.8" dur="4s" repeatCount="indefinite" />
-                      </stop>
-                    </linearGradient>
-                    <filter id="soft-glow" x="-50%" y="-50%" width="200%" height="200%">
-                      <feGaussianBlur in="SourceGraphic" stdDeviation="0.8" result="blur" />
-                      <feMerge>
-                        <feMergeNode in="blur" />
-                        <feMergeNode in="SourceGraphic" />
-                      </feMerge>
-                    </filter>
-                  </defs>
-                  <text x="50%" y="40" textAnchor="middle" className="trusted-text-base">
-                    {language === 'en' ? 'trusted' : 'надежный'}
-                  </text>
-                  <text x="50%" y="40" textAnchor="middle" className="trusted-shine-stroke" filter="url(#soft-glow)">
-                    {language === 'en' ? 'trusted' : 'надежный'}
-                  </text>
-                </svg>
-              </span>
-            </span>
-            <span>{language === 'en' ? 'companion' : 'помощник'}</span>
-          </h1>
-          
-          {/* CTA Button */}
-          <div className="animate-fade-in pointer-events-auto">
-            <Link to="/make-deal">
-              <Button 
-                size="lg" 
-                className="rounded-full px-8 py-6 text-base font-semibold bg-foreground text-background hover:bg-foreground/90 shadow-lg"
+        <div className="container max-w-6xl mx-auto relative z-10 pointer-events-none -mt-16">
+          <div className="flex items-center justify-between gap-8 lg:gap-16">
+            {/* Left - Text content */}
+            <div className="flex-1 text-left ml-4 md:ml-8">
+              {/* Tagline */}
+              <p className="text-muted-foreground text-lg md:text-xl mb-6 animate-fade-in">
+                {language === 'en' ? 'The crypto app for everyone' : 'Крипто-приложение для всех'}
+              </p>
+              
+              {/* Main headline */}
+              <h1 className="section-title mb-8 animate-fade-in flex flex-col gap-2">
+                <span className="flex items-center flex-wrap gap-2">
+                  <span>{language === 'en' ? 'Your' : 'Ваш'}</span>
+                  <svg className="trusted-svg" viewBox="0 0 170 50" preserveAspectRatio="xMidYMid meet">
+                    <defs>
+                      <linearGradient id="text-fill-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stopColor="hsl(260 10% 20%)" />
+                        <stop offset="50%" stopColor="hsl(260 10% 50%)" />
+                        <stop offset="100%" stopColor="hsl(260 10% 20%)" />
+                      </linearGradient>
+                      <linearGradient id="teal-shine" x1="100%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stopColor="transparent">
+                          <animate attributeName="offset" values="-0.5;1.5" dur="4s" repeatCount="indefinite" />
+                        </stop>
+                        <stop offset="15%" stopColor="hsl(175 70% 50% / 0.8)">
+                          <animate attributeName="offset" values="-0.35;1.65" dur="4s" repeatCount="indefinite" />
+                        </stop>
+                        <stop offset="30%" stopColor="transparent">
+                          <animate attributeName="offset" values="-0.2;1.8" dur="4s" repeatCount="indefinite" />
+                        </stop>
+                      </linearGradient>
+                      <filter id="soft-glow" x="-50%" y="-50%" width="200%" height="200%">
+                        <feGaussianBlur in="SourceGraphic" stdDeviation="0.8" result="blur" />
+                        <feMerge>
+                          <feMergeNode in="blur" />
+                          <feMergeNode in="SourceGraphic" />
+                        </feMerge>
+                      </filter>
+                    </defs>
+                    <text x="50%" y="40" textAnchor="middle" className="trusted-text-base">
+                      {language === 'en' ? 'trusted' : 'надежный'}
+                    </text>
+                    <text x="50%" y="40" textAnchor="middle" className="trusted-shine-stroke" filter="url(#soft-glow)">
+                      {language === 'en' ? 'trusted' : 'надежный'}
+                    </text>
+                  </svg>
+                </span>
+                <span>{language === 'en' ? 'companion' : 'помощник'}</span>
+              </h1>
+              
+              {/* CTA Button */}
+              <div className="animate-fade-in pointer-events-auto">
+                <Link to="/make-deal">
+                  <Button 
+                    size="lg" 
+                    className="rounded-full px-8 py-6 text-base font-semibold bg-foreground text-background hover:bg-foreground/90 shadow-lg"
+                  >
+                    {language === 'en' ? 'Download Triangle' : 'Скачать Triangle'}
+                  </Button>
+                </Link>
+              </div>
+            </div>
+
+            {/* Right - Animated Logo */}
+            <div className="hidden md:flex flex-1 items-center justify-center">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
+                animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                transition={{ 
+                  duration: 1.2, 
+                  ease: [0.22, 1, 0.36, 1],
+                  delay: 0.3
+                }}
+                className="relative"
               >
-                {language === 'en' ? 'Download Triangle' : 'Скачать Triangle'}
-              </Button>
-            </Link>
+                {/* Glow effect behind logo */}
+                <motion.div
+                  className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/30 to-accent/20 blur-3xl"
+                  animate={{ 
+                    scale: [1, 1.2, 1],
+                    opacity: [0.5, 0.8, 0.5]
+                  }}
+                  transition={{ 
+                    duration: 4,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                />
+                
+                {/* Rotating ring */}
+                <motion.div
+                  className="absolute -inset-8 rounded-full border border-primary/20"
+                  animate={{ rotate: 360 }}
+                  transition={{ 
+                    duration: 20,
+                    repeat: Infinity,
+                    ease: "linear"
+                  }}
+                  style={{
+                    background: 'conic-gradient(from 0deg, transparent, hsl(174 72% 45% / 0.1), transparent)'
+                  }}
+                />
+                
+                {/* Second rotating ring */}
+                <motion.div
+                  className="absolute -inset-16 rounded-full border border-accent/10"
+                  animate={{ rotate: -360 }}
+                  transition={{ 
+                    duration: 30,
+                    repeat: Infinity,
+                    ease: "linear"
+                  }}
+                />
+                
+                {/* Logo with float animation */}
+                <motion.img 
+                  src={triangleHeroLogo} 
+                  alt="Triangle" 
+                  className="w-48 h-48 lg:w-64 lg:h-64 object-contain relative z-10 drop-shadow-2xl"
+                  animate={{ 
+                    y: [0, -15, 0],
+                    rotateY: [0, 5, 0, -5, 0]
+                  }}
+                  transition={{ 
+                    duration: 6,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                />
+                
+                {/* Sparkle particles */}
+                {[...Array(6)].map((_, i) => (
+                  <motion.div
+                    key={i}
+                    className="absolute w-2 h-2 rounded-full bg-primary/60"
+                    style={{
+                      top: `${20 + Math.random() * 60}%`,
+                      left: `${20 + Math.random() * 60}%`,
+                    }}
+                    animate={{
+                      opacity: [0, 1, 0],
+                      scale: [0, 1.5, 0],
+                    }}
+                    transition={{
+                      duration: 2 + Math.random() * 2,
+                      repeat: Infinity,
+                      delay: i * 0.5,
+                      ease: "easeInOut"
+                    }}
+                  />
+                ))}
+              </motion.div>
+            </div>
           </div>
         </div>
       </section>
