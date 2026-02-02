@@ -234,11 +234,11 @@
 /* Gold edge glow animation for stroke */
 /* Trusted text with shine stroke animation */
 .trusted-svg {
-  height: 1.1em;
+  height: 1.2em;
   width: auto;
   overflow: visible;
   vertical-align: middle;
-  margin-top: 0.15em;
+  margin-top: 0.1em;
 }
 
 .trusted-text-base {
