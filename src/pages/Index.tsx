@@ -154,12 +154,12 @@ const Index = () => {
       </section>
 
       {/* Feature Section 1 - Your Wallet */}
-      <section className="py-16 px-4 -mt-8">
+      <section className="py-24 px-4">
         <div className="container max-w-6xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left - Feature card visual */}
-            <ScrollReveal direction="left" className="order-2 lg:order-1">
-              <div className="feature-card min-h-[380px] flex items-center justify-center">
+            <ScrollReveal direction="left" parallax parallaxSpeed={30} className="order-2 lg:order-1">
+              <div className="feature-card min-h-[400px] flex items-center justify-center">
                 <div className="text-center">
                   <div className="w-20 h-20 mx-auto mb-6 rounded-3xl bg-gradient-to-br from-primary to-accent flex items-center justify-center">
                     <Wallet className="h-10 w-10 text-primary-foreground" />
@@ -170,7 +170,7 @@ const Index = () => {
             </ScrollReveal>
 
             {/* Right - Text content */}
-            <ScrollReveal direction="right" delay={0.1} className="order-1 lg:order-2 space-y-8">
+            <ScrollReveal direction="right" delay={0.15} parallax parallaxSpeed={20} className="order-1 lg:order-2 space-y-8">
               <div>
                 <p className="text-muted-foreground text-sm uppercase tracking-wider mb-3">
                   {language === 'en' ? 'Keep everything in one place' : 'Храните все в одном месте'}
@@ -204,11 +204,11 @@ const Index = () => {
       </section>
 
       {/* Feature Section 2 - Your Tools */}
-      <section className="py-16 px-4 bg-secondary/30">
+      <section className="py-24 px-4 bg-secondary/30">
         <div className="container max-w-6xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left - Text content */}
-            <ScrollReveal direction="left" className="space-y-8">
+            <ScrollReveal direction="left" parallax parallaxSpeed={20} className="space-y-8">
               <div>
                 <p className="text-muted-foreground text-sm uppercase tracking-wider mb-3">
                   {language === 'en' ? 'Powerful tools made for everyone' : 'Мощные инструменты для всех'}
@@ -239,8 +239,8 @@ const Index = () => {
             </ScrollReveal>
 
             {/* Right - Feature card visual */}
-            <ScrollReveal direction="right" delay={0.1}>
-              <div className="feature-card min-h-[380px] flex items-center justify-center">
+            <ScrollReveal direction="right" delay={0.15} parallax parallaxSpeed={30}>
+              <div className="feature-card min-h-[400px] flex items-center justify-center">
                 <div className="text-center">
                   <div className="w-20 h-20 mx-auto mb-6 rounded-3xl bg-gradient-to-br from-accent to-primary flex items-center justify-center">
                     <Repeat className="h-10 w-10 text-primary-foreground" />
@@ -254,12 +254,12 @@ const Index = () => {
       </section>
 
       {/* Feature Section 3 - Your Security */}
-      <section className="py-16 px-4">
+      <section className="py-24 px-4">
         <div className="container max-w-6xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left - Feature card visual */}
-            <ScrollReveal direction="left">
-              <div className="feature-card min-h-[380px] flex items-center justify-center">
+            <ScrollReveal direction="left" parallax parallaxSpeed={30}>
+              <div className="feature-card min-h-[400px] flex items-center justify-center">
                 <div className="text-center">
                   <div className="w-20 h-20 mx-auto mb-6 rounded-3xl bg-gradient-to-br from-primary to-accent flex items-center justify-center">
                     <Shield className="h-10 w-10 text-primary-foreground" />
@@ -270,7 +270,7 @@ const Index = () => {
             </ScrollReveal>
 
             {/* Right - Text content */}
-            <ScrollReveal direction="right" delay={0.1} className="space-y-8">
+            <ScrollReveal direction="right" delay={0.15} parallax parallaxSpeed={20} className="space-y-8">
               <div>
                 <p className="text-muted-foreground text-sm uppercase tracking-wider mb-3">
                   {language === 'en' ? 'Controlled by you, secured by us' : 'Под вашим контролем, под нашей защитой'}
@@ -304,8 +304,8 @@ const Index = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 px-4 bg-secondary/30">
-        <ScrollReveal direction="up" className="container max-w-4xl mx-auto text-center">
+      <section className="py-24 px-4 bg-secondary/30">
+        <ScrollReveal direction="up" parallax parallaxSpeed={15} className="container max-w-4xl mx-auto text-center">
           <p className="text-muted-foreground text-sm uppercase tracking-wider mb-4">
             {language === 'en' ? 'Download Triangle' : 'Скачать Triangle'}
           </p>
