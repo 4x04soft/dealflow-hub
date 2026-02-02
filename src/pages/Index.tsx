@@ -3,7 +3,6 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Wallet, Repeat, Shield, Bell, Coins, Flame, Tag, Zap } from 'lucide-react';
 import triangleHeroLogo from '@/assets/triangle-hero-logo.png';
-import GoldEdgeGlow from '@/components/GoldEdgeGlow';
 
 const Index = () => {
   const { language } = useLanguage();
@@ -97,7 +96,7 @@ const Index = () => {
             <span className="flex items-center justify-center gap-4 flex-wrap">
               <span>{language === 'en' ? 'Your' : 'Ваш'}</span>
               <img src={triangleHeroLogo} alt="Triangle" className="w-16 h-16 md:w-20 md:h-20 object-contain" />
-              <GoldEdgeGlow><span className="gold-glow-text text-foreground">{language === 'en' ? 'trusted' : 'надежный'}</span></GoldEdgeGlow>
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-foreground via-muted-foreground to-foreground">{language === 'en' ? 'trusted' : 'надежный'}</span>
             </span>
             <span>{language === 'en' ? 'companion' : 'помощник'}</span>
           </h1>
@@ -109,7 +108,7 @@ const Index = () => {
                 size="lg" 
                 className="rounded-full px-8 py-6 text-base font-semibold bg-foreground text-background hover:bg-foreground/90 shadow-lg"
               >
-                {language === 'en' ? 'Connect Triangle' : 'Подключить Triangle'}
+                {language === 'en' ? 'Download Triangle' : 'Скачать Triangle'}
               </Button>
             </Link>
           </div>
@@ -268,7 +267,7 @@ const Index = () => {
       <section className="py-24 px-4 bg-secondary/30">
         <div className="container max-w-4xl mx-auto text-center">
           <p className="text-muted-foreground text-sm uppercase tracking-wider mb-4">
-            {language === 'en' ? 'Connect Triangle' : 'Подключить Triangle'}
+            {language === 'en' ? 'Download Triangle' : 'Скачать Triangle'}
           </p>
           <h2 className="section-title mb-4">
             {language === 'en' ? 'to get started' : 'чтобы начать'}
@@ -281,7 +280,7 @@ const Index = () => {
               size="lg" 
               className="rounded-full px-8 py-6 text-base font-semibold bg-foreground text-background hover:bg-foreground/90 shadow-lg gap-2 group"
             >
-              {language === 'en' ? 'Connect Triangle' : 'Подключить Triangle'}
+              {language === 'en' ? 'Download Triangle' : 'Скачать Triangle'}
               <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Button>
           </Link>
