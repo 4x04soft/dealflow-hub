@@ -89,7 +89,7 @@ const Index = () => {
         {/* Smooth gradient transition to next section */}
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent pointer-events-none z-20" />
         
-        <div className="container max-w-5xl mx-auto text-center relative z-10 pointer-events-none">
+        <div className="container max-w-5xl mx-auto text-center relative z-10 pointer-events-none -mt-16 ml-4 md:ml-8">
           {/* Tagline */}
           <p className="text-muted-foreground text-lg md:text-xl mb-6 animate-fade-in">
             {language === 'en' ? 'The crypto app for everyone' : 'Крипто-приложение для всех'}
