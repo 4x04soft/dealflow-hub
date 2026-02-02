@@ -27,23 +27,23 @@ const TiltCard = ({ children, className = '' }: TiltCardProps) => {
     setMousePosition({ x: 0.5, y: 0.5 });
   };
 
-  // Calculate transforms based on mouse position
-  const rotateX = isHovered ? (mousePosition.y - 0.5) * -25 : 0;
-  const rotateY = isHovered ? (mousePosition.x - 0.5) * 25 : 0;
+  // Stronger rotation for more pronounced bend effect
+  const rotateX = isHovered ? (mousePosition.y - 0.5) * -40 : 0;
+  const rotateY = isHovered ? (mousePosition.x - 0.5) * 40 : 0;
   
   // Dynamic gradient position for "bend" illusion
   const gradientX = mousePosition.x * 100;
   const gradientY = mousePosition.y * 100;
   
-  // Shadow offset based on tilt
-  const shadowX = (mousePosition.x - 0.5) * 30;
-  const shadowY = (mousePosition.y - 0.5) * 30;
+  // Larger shadow offset based on tilt
+  const shadowX = (mousePosition.x - 0.5) * 50;
+  const shadowY = (mousePosition.y - 0.5) * 50;
 
   return (
     <div 
       ref={cardRef}
       className="relative"
-      style={{ perspective: '1000px' }}
+      style={{ perspective: '800px' }}
       onMouseMove={handleMouseMove}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
@@ -53,23 +53,29 @@ const TiltCard = ({ children, className = '' }: TiltCardProps) => {
         animate={{
           rotateX,
           rotateY,
-          scale: isHovered ? 1.02 : 1,
+          scale: isHovered ? 1.05 : 1,
         }}
         transition={{
           type: "spring",
-          stiffness: 400,
-          damping: 25,
+          stiffness: 300,
+          damping: 20,
         }}
         style={{
           transformStyle: 'preserve-3d',
           transformOrigin: 'center center',
+          boxShadow: isHovered 
+            ? `${-shadowX * 0.5}px ${-shadowY * 0.5}px 40px hsl(var(--foreground) / 0.2), 
+               ${-shadowX}px ${-shadowY}px 80px hsl(var(--foreground) / 0.15),
+               inset ${shadowX * 0.1}px ${shadowY * 0.1}px 20px hsl(var(--primary) / 0.05)`
+            : '0 10px 40px hsl(var(--foreground) / 0.1)',
+          transition: 'box-shadow 0.3s ease-out',
         }}
       >
-        {/* Inner content with depth */}
+        {/* Inner content with stronger depth */}
         <div 
           className="relative z-10"
           style={{ 
-            transform: isHovered ? 'translateZ(30px)' : 'translateZ(0)',
+            transform: isHovered ? 'translateZ(60px)' : 'translateZ(0)',
             transition: 'transform 0.3s ease-out'
           }}
         >
@@ -85,55 +91,102 @@ const TiltCard = ({ children, className = '' }: TiltCardProps) => {
           style={{
             background: `
               radial-gradient(
-                ellipse 80% 80% at ${gradientX}% ${gradientY}%,
-                hsl(var(--primary) / 0.2) 0%,
-                transparent 50%
+                ellipse 100% 100% at ${gradientX}% ${gradientY}%,
+                hsl(var(--primary) / 0.25) 0%,
+                transparent 40%
               ),
               linear-gradient(
-                ${135 + (mousePosition.x - 0.5) * 30}deg,
-                transparent 0%,
-                hsl(var(--background) / 0.1) ${40 + (mousePosition.y - 0.5) * 20}%,
-                transparent 60%
+                ${135 + (mousePosition.x - 0.5) * 50}deg,
+                hsl(255 100% 100% / 0.1) 0%,
+                transparent ${30 + (mousePosition.y - 0.5) * 30}%,
+                hsl(var(--foreground) / 0.05) 100%
               )
             `,
           }}
         />
         
-        {/* Highlight edge based on tilt direction */}
+        {/* Stronger highlight edge based on tilt direction */}
         <motion.div
           className="absolute inset-0 rounded-3xl pointer-events-none"
           animate={{
-            opacity: isHovered ? 0.6 : 0,
+            opacity: isHovered ? 0.8 : 0,
           }}
           style={{
             background: `linear-gradient(
               ${Math.atan2(mousePosition.y - 0.5, mousePosition.x - 0.5) * (180 / Math.PI) + 90}deg,
               transparent 0%,
-              hsl(var(--primary) / 0.15) 50%,
+              hsl(var(--primary) / 0.2) 40%,
+              hsl(var(--primary) / 0.3) 50%,
+              hsl(var(--primary) / 0.2) 60%,
               transparent 100%
             )`,
-            filter: 'blur(20px)',
+            filter: 'blur(30px)',
           }}
         />
+        
+        {/* Surface reflection */}
+        <motion.div
+          className="absolute inset-0 rounded-3xl pointer-events-none overflow-hidden"
+          animate={{
+            opacity: isHovered ? 0.5 : 0,
+          }}
+        >
+          <div 
+            className="absolute w-[200%] h-[200%] -top-1/2 -left-1/2"
+            style={{
+              background: `conic-gradient(
+                from ${(mousePosition.x - 0.5) * 180}deg at ${gradientX}% ${gradientY}%,
+                transparent 0deg,
+                hsl(var(--background) / 0.3) 60deg,
+                transparent 120deg,
+                hsl(var(--background) / 0.2) 180deg,
+                transparent 240deg,
+                hsl(var(--background) / 0.3) 300deg,
+                transparent 360deg
+              )`,
+              filter: 'blur(40px)',
+            }}
+          />
+        </motion.div>
       </motion.div>
       
-      {/* Dynamic shadow */}
+      {/* Main dynamic shadow */}
       <motion.div
-        className="absolute inset-0 rounded-3xl -z-10"
+        className="absolute inset-4 rounded-3xl -z-10"
         animate={{
-          opacity: isHovered ? 0.4 : 0.2,
+          opacity: isHovered ? 0.6 : 0.2,
           x: shadowX,
           y: shadowY,
-          scale: isHovered ? 0.95 : 1,
+          scale: isHovered ? 0.9 : 1,
         }}
         transition={{
           type: "spring",
-          stiffness: 400,
-          damping: 25,
+          stiffness: 300,
+          damping: 20,
         }}
         style={{
-          background: 'hsl(var(--foreground) / 0.15)',
-          filter: 'blur(20px)',
+          background: 'hsl(var(--foreground) / 0.3)',
+          filter: 'blur(30px)',
+        }}
+      />
+      
+      {/* Secondary softer shadow */}
+      <motion.div
+        className="absolute inset-0 rounded-3xl -z-20"
+        animate={{
+          opacity: isHovered ? 0.3 : 0.1,
+          x: shadowX * 1.5,
+          y: shadowY * 1.5,
+          scale: isHovered ? 0.85 : 1,
+        }}
+        transition={{
+          type: "spring",
+          stiffness: 300,
+          damping: 20,
+        }}
+        style={{
+          background: 'hsl(var(--foreground) / 0.2)',
+          filter: 'blur(50px)',
         }}
       />
     </div>
