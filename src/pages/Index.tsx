@@ -79,7 +79,7 @@ const Index = () => {
   return (
     <div className="relative">
       {/* Hero Section - Phantom style */}
-      <section className="hero-glow min-h-screen flex flex-col items-center justify-center px-4 pt-20 pb-16">
+      <section className="hero-glow min-h-[85vh] flex flex-col items-center justify-center px-4 pt-20 pb-16">
         <div className="container max-w-5xl mx-auto text-center relative z-10">
           {/* Tagline */}
           <p className="text-muted-foreground text-lg md:text-xl mb-6 animate-fade-in">
@@ -91,7 +91,7 @@ const Index = () => {
             <span className="flex items-center justify-center flex-wrap gap-2">
               <span>{language === 'en' ? 'Your' : 'Ваш'}</span>
               <img src={triangleHeroLogo} alt="Triangle" className="w-16 h-16 md:w-20 md:h-20 object-contain" />
-              <svg className="trusted-svg -ml-8" viewBox="0 0 170 50" preserveAspectRatio="xMidYMid meet">
+              <svg className="trusted-svg -ml-6" viewBox="0 0 170 50" preserveAspectRatio="xMidYMid meet">
                 <defs>
                   <linearGradient id="text-fill-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
                     <stop offset="0%" stopColor="hsl(260 10% 20%)" />
