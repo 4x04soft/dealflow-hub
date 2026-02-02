@@ -118,10 +118,10 @@ const Index = () => {
                       </feMerge>
                     </filter>
                   </defs>
-                  <text x="50%" y="37" textAnchor="middle" className="trusted-text-base">
+                  <text x="50%" y="40" textAnchor="middle" className="trusted-text-base">
                     {language === 'en' ? 'trusted' : 'надежный'}
                   </text>
-                  <text x="50%" y="37" textAnchor="middle" className="trusted-shine-stroke" filter="url(#soft-glow)">
+                  <text x="50%" y="40" textAnchor="middle" className="trusted-shine-stroke" filter="url(#soft-glow)">
                     {language === 'en' ? 'trusted' : 'надежный'}
                   </text>
                 </svg>
