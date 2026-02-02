@@ -38,7 +38,7 @@ const WatercolorParticles = () => {
   const createParticle = useCallback((x: number, y: number, isVapor = false): Particle => {
     const angle = Math.random() * Math.PI * 2;
     const speed = isVapor ? Math.random() * 1 + 0.3 : Math.random() * 3 + 1;
-    const size = isVapor ? Math.random() * 20 + 8 : Math.random() * 50 + 20;
+    const size = isVapor ? Math.random() * 10 + 5 : Math.random() * 25 + 12;
     const color = colors[Math.floor(Math.random() * colors.length)];
     
     return {
