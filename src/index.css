@@ -231,6 +231,42 @@
   }
 }
 
+/* Gold edge glow animation for stroke */
+@keyframes gold-edge-glow {
+  0% {
+    stroke-dashoffset: 100%;
+    filter: drop-shadow(0 0 4px hsl(45 90% 50% / 0.6));
+  }
+  50% {
+    filter: drop-shadow(0 0 12px hsl(45 90% 55% / 0.9));
+  }
+  100% {
+    stroke-dashoffset: -100%;
+    filter: drop-shadow(0 0 4px hsl(45 90% 50% / 0.6));
+  }
+}
+
+.trusted-text-container {
+  position: relative;
+  display: inline-block;
+}
+
+.trusted-text-svg {
+  overflow: visible;
+}
+
+.trusted-text-fill {
+  fill: url(#bw-gradient);
+}
+
+.trusted-text-stroke {
+  fill: none;
+  stroke: url(#gold-gradient);
+  stroke-width: 1.5;
+  stroke-dasharray: 100%;
+  animation: gold-edge-glow 3s ease-in-out infinite;
+}
+
 @layer utilities {
   /* Hide scrollbar */
   .scrollbar-hide {
