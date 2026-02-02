@@ -88,10 +88,10 @@ const Index = () => {
           
           {/* Main headline with icon */}
           <h1 className="section-title mb-8 animate-fade-in flex flex-col items-center gap-4">
-            <span className="flex items-center justify-center flex-wrap" style={{ gap: '0.5rem' }}>
+            <span className="flex items-center justify-center flex-wrap gap-2">
               <span>{language === 'en' ? 'Your' : 'Ваш'}</span>
-              <img src={triangleHeroLogo} alt="Triangle" className="w-16 h-16 md:w-20 md:h-20 object-contain -mx-1" />
-              <svg className="trusted-svg" viewBox="0 0 170 50" preserveAspectRatio="xMidYMid meet">
+              <img src={triangleHeroLogo} alt="Triangle" className="w-16 h-16 md:w-20 md:h-20 object-contain" />
+              <svg className="trusted-svg -ml-3" viewBox="0 0 170 50" preserveAspectRatio="xMidYMid meet">
                 <defs>
                   <linearGradient id="text-fill-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
                     <stop offset="0%" stopColor="hsl(260 10% 20%)" />

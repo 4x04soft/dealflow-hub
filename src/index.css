@@ -251,21 +251,21 @@
   font-weight: 700;
   font-family: 'Inter', system-ui, sans-serif;
   fill: none;
-  stroke: url(#comet-gradient);
-  stroke-width: 1.2;
+  stroke: hsl(48 100% 65%);
+  stroke-width: 2;
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-dasharray: 40 1000;
+  stroke-dasharray: 8 800;
   stroke-dashoffset: 0;
-  animation: comet-run 4s linear infinite;
+  animation: comet-run 3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
 @keyframes comet-run {
   0% {
-    stroke-dashoffset: 0;
+    stroke-dashoffset: 50;
   }
   100% {
-    stroke-dashoffset: -600;
+    stroke-dashoffset: -550;
   }
 }
 
