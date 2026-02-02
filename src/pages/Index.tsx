@@ -98,14 +98,19 @@ const Index = () => {
                     <stop offset="50%" stopColor="hsl(260 10% 50%)" />
                     <stop offset="100%" stopColor="hsl(260 10% 20%)" />
                   </linearGradient>
-                  <linearGradient id="comet-gradient" gradientUnits="userSpaceOnUse">
-                    <stop offset="0%" stopColor="transparent" />
-                    <stop offset="70%" stopColor="hsl(45 80% 55% / 0.4)" />
-                    <stop offset="90%" stopColor="hsl(45 90% 65%)" />
-                    <stop offset="100%" stopColor="hsl(50 100% 85%)" />
+                  <linearGradient id="teal-shine" x1="100%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stopColor="transparent">
+                      <animate attributeName="offset" values="-0.5;1.5" dur="4s" repeatCount="indefinite" />
+                    </stop>
+                    <stop offset="15%" stopColor="hsl(175 70% 50% / 0.8)">
+                      <animate attributeName="offset" values="-0.35;1.65" dur="4s" repeatCount="indefinite" />
+                    </stop>
+                    <stop offset="30%" stopColor="transparent">
+                      <animate attributeName="offset" values="-0.2;1.8" dur="4s" repeatCount="indefinite" />
+                    </stop>
                   </linearGradient>
-                  <filter id="comet-glow" x="-50%" y="-50%" width="200%" height="200%">
-                    <feGaussianBlur in="SourceGraphic" stdDeviation="1.5" result="blur" />
+                  <filter id="soft-glow" x="-50%" y="-50%" width="200%" height="200%">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation="0.8" result="blur" />
                     <feMerge>
                       <feMergeNode in="blur" />
                       <feMergeNode in="SourceGraphic" />
@@ -115,7 +120,7 @@ const Index = () => {
                 <text x="85" y="37" textAnchor="middle" className="trusted-text-base">
                   {language === 'en' ? 'trusted' : 'надежный'}
                 </text>
-                <text x="85" y="37" textAnchor="middle" className="trusted-comet-stroke" filter="url(#comet-glow)">
+                <text x="85" y="37" textAnchor="middle" className="trusted-shine-stroke" filter="url(#soft-glow)">
                   {language === 'en' ? 'trusted' : 'надежный'}
                 </text>
               </svg>
