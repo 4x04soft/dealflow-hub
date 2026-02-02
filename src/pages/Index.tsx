@@ -161,7 +161,8 @@ const Index = () => {
                   {language === 'en' ? 'Keep everything in one place' : 'Храните все в одном месте'}
                 </p>
                 <h2 className="section-title">
-                  <span className="gradient-text">{language === 'en' ? 'Wallet' : 'Кошелек'}</span>
+                  <span className="gradient-text">{language === 'en' ? 'Your' : 'Ваш'}</span>{' '}
+                  {language === 'en' ? 'wallet' : 'кошелек'}
                 </h2>
               </div>
 
