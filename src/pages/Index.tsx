@@ -167,14 +167,14 @@ const Index = () => {
               >
                 {/* Background circle to block watercolor with blur and noise */}
                 <div 
-                  className="absolute -inset-8 rounded-full backdrop-blur-2xl overflow-hidden"
+                  className="absolute -inset-8 rounded-full backdrop-blur-xl overflow-hidden"
                   style={{
-                    background: 'radial-gradient(circle, hsl(var(--background)) 0%, hsl(var(--background) / 0.95) 100%)'
+                    background: 'radial-gradient(circle, hsl(var(--background) / 0.6) 0%, hsl(var(--background) / 0.4) 100%)'
                   }}
                 >
                   {/* Noise overlay */}
                   <div 
-                    className="absolute inset-0 opacity-40 mix-blend-overlay"
+                    className="absolute inset-0 opacity-25 mix-blend-overlay"
                     style={{
                       backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
                       backgroundSize: '128px 128px'
