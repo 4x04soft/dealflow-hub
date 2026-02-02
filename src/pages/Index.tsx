@@ -167,9 +167,12 @@ const Index = () => {
               >
                 {/* Background circle to block watercolor with blur and noise */}
                 <div 
-                  className="absolute -inset-8 rounded-full backdrop-blur-xl overflow-hidden"
+                  className="absolute -inset-8 rounded-full overflow-hidden"
                   style={{
-                    background: 'radial-gradient(circle, hsl(var(--background) / 0.8) 0%, hsl(var(--background) / 0.5) 50%, hsl(var(--background) / 0.15) 80%, transparent 100%)'
+                    background: 'radial-gradient(circle, hsl(var(--background) / 0.85) 0%, hsl(var(--background) / 0.6) 40%, hsl(var(--background) / 0.2) 70%, transparent 90%)',
+                    backdropFilter: 'blur(12px)',
+                    WebkitMaskImage: 'radial-gradient(circle, black 0%, black 50%, transparent 100%)',
+                    maskImage: 'radial-gradient(circle, black 0%, black 50%, transparent 100%)'
                   }}
                 >
                   {/* Noise overlay */}
