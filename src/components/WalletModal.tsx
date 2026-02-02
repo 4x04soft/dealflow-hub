@@ -8,38 +8,37 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
-import { Wallet } from 'lucide-react';
 
 const wallets = [
   {
     id: 'metamask',
     name: 'MetaMask',
     icon: '🦊',
-    description: 'Connect with MetaMask',
+    description: { en: 'Connect with MetaMask', ru: 'Подключить MetaMask' },
   },
   {
     id: 'walletconnect',
     name: 'WalletConnect',
     icon: '🔗',
-    description: 'Scan with WalletConnect',
+    description: { en: 'Scan with WalletConnect', ru: 'Сканировать WalletConnect' },
   },
   {
     id: 'coinbase',
     name: 'Coinbase Wallet',
     icon: '💙',
-    description: 'Connect with Coinbase',
+    description: { en: 'Connect with Coinbase', ru: 'Подключить Coinbase' },
   },
   {
     id: 'trust',
     name: 'Trust Wallet',
     icon: '🛡️',
-    description: 'Connect with Trust Wallet',
+    description: { en: 'Connect with Trust Wallet', ru: 'Подключить Trust Wallet' },
   },
   {
     id: 'phantom',
     name: 'Phantom',
     icon: '👻',
-    description: 'Connect with Phantom',
+    description: { en: 'Connect with Phantom', ru: 'Подключить Phantom' },
   },
 ];
 
@@ -50,7 +49,7 @@ interface WalletModalProps {
 }
 
 export const WalletModal = ({ isConnected, onConnect, onDisconnect }: WalletModalProps) => {
-  const { t } = useLanguage();
+  const { language } = useLanguage();
   const [open, setOpen] = useState(false);
 
   const handleConnect = (walletId: string) => {
@@ -60,9 +59,14 @@ export const WalletModal = ({ isConnected, onConnect, onDisconnect }: WalletModa
 
   if (isConnected) {
     return (
-      <Button variant="outline" size="sm" onClick={onDisconnect} className="gap-2">
+      <Button 
+        variant="outline" 
+        size="sm" 
+        onClick={onDisconnect} 
+        className="gap-2 rounded-full px-4"
+      >
         <div className="w-2 h-2 rounded-full bg-success animate-pulse" />
-        <span className="text-xs">0x1234...5678</span>
+        <span className="text-xs font-medium">0x1234...5678</span>
       </Button>
     );
   }
@@ -70,31 +74,36 @@ export const WalletModal = ({ isConnected, onConnect, onDisconnect }: WalletModa
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button variant="wallet" size="default" className="gap-2">
-          <Wallet className="h-4 w-4" />
-          <span>{t('connectWallet')}</span>
+        <Button 
+          size="default" 
+          className="rounded-full px-6 font-semibold bg-foreground text-background hover:bg-foreground/90"
+        >
+          {language === 'en' ? 'Download' : 'Скачать'}
         </Button>
       </DialogTrigger>
-      <DialogContent className="glass-strong border-border/50 max-w-md">
+      <DialogContent className="sm:max-w-md rounded-3xl border-border/50 shadow-2xl">
         <DialogHeader>
-          <DialogTitle className="text-xl font-semibold">{t('chooseWallet')}</DialogTitle>
+          <DialogTitle className="text-xl font-bold text-center">
+            {language === 'en' ? 'Connect your wallet' : 'Подключите кошелек'}
+          </DialogTitle>
         </DialogHeader>
-        <div className="space-y-2 mt-4">
-          <p className="text-xs text-muted-foreground uppercase tracking-wider mb-3">
-            {t('popularWallets')}
+        <div className="space-y-2 mt-6">
+          <p className="text-xs text-muted-foreground uppercase tracking-wider mb-4 text-center">
+            {language === 'en' ? 'Popular wallets' : 'Популярные кошельки'}
           </p>
           {wallets.map((wallet) => (
             <button
               key={wallet.id}
               onClick={() => handleConnect(wallet.id)}
-              className="w-full flex items-center gap-4 p-4 rounded-xl bg-secondary/50 hover:bg-secondary transition-all duration-200 group"
+              className="w-full flex items-center gap-4 p-4 rounded-2xl bg-secondary/50 hover:bg-secondary 
+                         transition-all duration-200 group border border-transparent hover:border-border"
             >
               <span className="text-2xl">{wallet.icon}</span>
-              <div className="text-left">
-                <p className="font-medium group-hover:text-primary transition-colors">
+              <div className="text-left flex-1">
+                <p className="font-semibold group-hover:text-primary transition-colors">
                   {wallet.name}
                 </p>
-                <p className="text-xs text-muted-foreground">{wallet.description}</p>
+                <p className="text-xs text-muted-foreground">{wallet.description[language]}</p>
               </div>
             </button>
           ))}
