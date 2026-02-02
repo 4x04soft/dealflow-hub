@@ -259,6 +259,13 @@
   fill: url(#bw-gradient);
 }
 
+/* Footer blur effect */
+.footer-blur {
+  background: hsl(var(--background) / 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
 .trusted-text-stroke {
   fill: none;
   stroke: url(#gold-gradient);
