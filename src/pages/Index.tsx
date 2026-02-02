@@ -90,7 +90,7 @@ const Index = () => {
           <h1 className="section-title mb-8 animate-fade-in flex flex-col items-center gap-4">
             <span className="flex items-center justify-center flex-wrap">
               <span>{language === 'en' ? 'Your' : 'Ваш'}</span>
-              <span className="inline-flex items-center -ml-1">
+              <span className="inline-flex items-center ml-2">
                 <img src={triangleHeroLogo} alt="Triangle" className="w-16 h-16 md:w-20 md:h-20 object-contain" />
                 <svg className="trusted-svg -ml-2" viewBox="0 0 170 50" preserveAspectRatio="xMidYMid meet">
                   <defs>
