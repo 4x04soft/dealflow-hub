@@ -88,7 +88,7 @@ const Index = () => {
           
           {/* Main headline with icon */}
           <h1 className="section-title mb-8 animate-fade-in flex flex-col items-center gap-4">
-            <span className="flex items-center justify-center gap-3 flex-wrap">
+            <span className="flex items-center justify-center gap-2 flex-wrap">
               <span>{language === 'en' ? 'Your' : 'Ваш'}</span>
               <img src={triangleHeroLogo} alt="Triangle" className="w-16 h-16 md:w-20 md:h-20 object-contain" />
               <span className="trusted-text-wrapper">
