@@ -88,13 +88,42 @@ const Index = () => {
           
           {/* Main headline with icon */}
           <h1 className="section-title mb-8 animate-fade-in text-center">
-            <span className="flex items-center justify-center gap-3 mb-2">
+            <span className="flex items-center justify-center flex-wrap gap-2 mb-2">
               <span>{language === 'en' ? 'Your' : 'Ваш'}</span>
               <img src={triangleHeroLogo} alt="Triangle" className="w-16 h-16 md:w-20 md:h-20 object-contain" />
-              <span className="trusted-text-wrapper">
-                <span className="gradient-text">{language === 'en' ? 'trusted' : 'надежный'}</span>
-                <span className="trusted-shine" aria-hidden="true">{language === 'en' ? 'trusted' : 'надежный'}</span>
-              </span>
+              <svg className="trusted-svg" viewBox="0 0 170 50" preserveAspectRatio="xMidYMid meet">
+                <defs>
+                  <linearGradient id="text-fill-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="hsl(174 72% 35%)" />
+                    <stop offset="50%" stopColor="hsl(190 70% 45%)" />
+                    <stop offset="100%" stopColor="hsl(174 72% 35%)" />
+                  </linearGradient>
+                  <linearGradient id="teal-shine" x1="100%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stopColor="transparent">
+                      <animate attributeName="offset" values="-0.5;1.5" dur="4s" repeatCount="indefinite" />
+                    </stop>
+                    <stop offset="15%" stopColor="hsl(174 72% 60% / 0.9)">
+                      <animate attributeName="offset" values="-0.35;1.65" dur="4s" repeatCount="indefinite" />
+                    </stop>
+                    <stop offset="30%" stopColor="transparent">
+                      <animate attributeName="offset" values="-0.2;1.8" dur="4s" repeatCount="indefinite" />
+                    </stop>
+                  </linearGradient>
+                  <filter id="soft-glow" x="-50%" y="-50%" width="200%" height="200%">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation="0.8" result="blur" />
+                    <feMerge>
+                      <feMergeNode in="blur" />
+                      <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                  </filter>
+                </defs>
+                <text x="85" y="37" textAnchor="middle" className="trusted-text-base">
+                  {language === 'en' ? 'trusted' : 'надежный'}
+                </text>
+                <text x="85" y="37" textAnchor="middle" className="trusted-shine-stroke" filter="url(#soft-glow)">
+                  {language === 'en' ? 'trusted' : 'надежный'}
+                </text>
+              </svg>
             </span>
             <span className="block">{language === 'en' ? 'companion' : 'помощник'}</span>
           </h1>
