@@ -88,33 +88,10 @@ const Index = () => {
           
           {/* Main headline with icon */}
           <h1 className="section-title mb-8 animate-fade-in flex flex-col items-center gap-4">
-            <span className="flex items-center justify-center gap-4 flex-wrap">
+            <span className="flex items-center justify-center gap-3 flex-wrap">
               <span>{language === 'en' ? 'Your' : 'Ваш'}</span>
               <img src={triangleHeroLogo} alt="Triangle" className="w-16 h-16 md:w-20 md:h-20 object-contain" />
-              <span className="trusted-text-container">
-                <svg className="trusted-text-svg" viewBox="0 0 200 60" style={{ width: 'auto', height: '1.1em', verticalAlign: 'baseline' }}>
-                  <defs>
-                    <linearGradient id="bw-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                      <stop offset="0%" stopColor="hsl(260 25% 11%)" />
-                      <stop offset="50%" stopColor="hsl(260 10% 45%)" />
-                      <stop offset="100%" stopColor="hsl(260 25% 11%)" />
-                    </linearGradient>
-                    <linearGradient id="gold-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                      <stop offset="0%" stopColor="hsl(45 90% 45%)" />
-                      <stop offset="30%" stopColor="hsl(50 95% 60%)" />
-                      <stop offset="50%" stopColor="hsl(45 100% 70%)" />
-                      <stop offset="70%" stopColor="hsl(50 95% 60%)" />
-                      <stop offset="100%" stopColor="hsl(45 90% 45%)" />
-                    </linearGradient>
-                  </defs>
-                  <text x="100" y="45" textAnchor="middle" fontSize="48" fontWeight="700" fontFamily="Inter, system-ui, sans-serif" className="trusted-text-fill">
-                    {language === 'en' ? 'trusted' : 'надежный'}
-                  </text>
-                  <text x="100" y="45" textAnchor="middle" fontSize="48" fontWeight="700" fontFamily="Inter, system-ui, sans-serif" className="trusted-text-stroke">
-                    {language === 'en' ? 'trusted' : 'надежный'}
-                  </text>
-                </svg>
-              </span>
+              <span className="trusted-glow-text">{language === 'en' ? 'trusted' : 'надежный'}</span>
             </span>
             <span>{language === 'en' ? 'companion' : 'помощник'}</span>
           </h1>
