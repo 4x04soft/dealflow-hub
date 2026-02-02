@@ -175,7 +175,7 @@ const WatercolorParticles = () => {
       const distance = Math.sqrt(dx * dx + dy * dy);
       
       // More particles based on speed
-      const particlesToCreate = Math.min(Math.floor(distance / 2) + 2, 10);
+      const particlesToCreate = Math.min(Math.floor(distance / 5) + 1, 4);
       
       for (let i = 0; i < particlesToCreate; i++) {
         const t = i / particlesToCreate;
@@ -183,19 +183,17 @@ const WatercolorParticles = () => {
         const py = lastMousePos.current.y + dy * t + (Math.random() - 0.5) * 40;
         particlesRef.current.push(createParticle(px, py, false));
         
-        // Add vapor particles
-        if (Math.random() > 0.4) {
+        // Add vapor particles (less often)
+        if (Math.random() > 0.7) {
           particlesRef.current.push(createParticle(px, py, true));
         }
       }
       
-      // Add extra splash particles
-      if (distance > 10) {
-        for (let i = 0; i < 3; i++) {
-          const splashX = mouseRef.current.x + (Math.random() - 0.5) * 60;
-          const splashY = mouseRef.current.y + (Math.random() - 0.5) * 60;
-          particlesRef.current.push(createParticle(splashX, splashY, false));
-        }
+      // Add extra splash particles (less often)
+      if (distance > 20 && Math.random() > 0.5) {
+        const splashX = mouseRef.current.x + (Math.random() - 0.5) * 60;
+        const splashY = mouseRef.current.y + (Math.random() - 0.5) * 60;
+        particlesRef.current.push(createParticle(splashX, splashY, false));
       }
       
       lastMousePos.current = { x: mouseRef.current.x, y: mouseRef.current.y };
@@ -234,8 +232,8 @@ const WatercolorParticles = () => {
     });
     
     // Limit particles
-    if (particlesRef.current.length > 250) {
-      particlesRef.current = particlesRef.current.slice(-250);
+    if (particlesRef.current.length > 100) {
+      particlesRef.current = particlesRef.current.slice(-100);
     }
     
     animationRef.current = requestAnimationFrame(animate);
