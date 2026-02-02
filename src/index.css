@@ -232,11 +232,13 @@
 }
 
 /* Gold edge glow animation for stroke */
-/* Trusted text with comet stroke animation */
+/* Trusted text with shine stroke animation */
 .trusted-svg {
   height: 1.1em;
   width: auto;
   overflow: visible;
+  vertical-align: middle;
+  margin-top: -0.05em;
 }
 
 .trusted-text-base {
