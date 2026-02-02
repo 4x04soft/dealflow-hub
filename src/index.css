@@ -255,17 +255,25 @@
   stroke-width: 2;
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-dasharray: 8 800;
-  stroke-dashoffset: 0;
-  animation: comet-run 3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  stroke-dasharray: 12 800;
+  stroke-dashoffset: 50;
+  animation: comet-run 8s ease-in-out infinite;
 }
 
 @keyframes comet-run {
   0% {
     stroke-dashoffset: 50;
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
   }
   100% {
     stroke-dashoffset: -550;
+    opacity: 0;
   }
 }
 
