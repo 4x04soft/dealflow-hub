@@ -232,13 +232,7 @@
 }
 
 /* Gold edge glow animation for stroke */
-/* Trusted text with stroke glow animation */
-.trusted-text-wrapper {
-  display: inline-flex;
-  align-items: center;
-  height: 1.1em;
-}
-
+/* Trusted text with comet stroke animation */
 .trusted-svg {
   height: 1.1em;
   width: auto;
@@ -252,32 +246,26 @@
   fill: url(#text-fill-gradient);
 }
 
-.trusted-text-stroke {
+.trusted-comet-stroke {
   font-size: 42px;
   font-weight: 700;
   font-family: 'Inter', system-ui, sans-serif;
   fill: none;
-  stroke: hsl(45 85% 60%);
-  stroke-width: 0.5;
+  stroke: url(#comet-gradient);
+  stroke-width: 1.2;
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-dasharray: 600;
-  stroke-dashoffset: 600;
-  animation: stroke-trace 3s ease-in-out infinite;
+  stroke-dasharray: 40 1000;
+  stroke-dashoffset: 0;
+  animation: comet-run 4s linear infinite;
 }
 
-@keyframes stroke-trace {
+@keyframes comet-run {
   0% {
-    stroke-dashoffset: 600;
-    stroke-opacity: 0.3;
-  }
-  50% {
     stroke-dashoffset: 0;
-    stroke-opacity: 1;
   }
   100% {
     stroke-dashoffset: -600;
-    stroke-opacity: 0.3;
   }
 }
 

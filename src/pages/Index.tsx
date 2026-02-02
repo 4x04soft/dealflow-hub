@@ -88,41 +88,37 @@ const Index = () => {
           
           {/* Main headline with icon */}
           <h1 className="section-title mb-8 animate-fade-in flex flex-col items-center gap-4">
-            <span className="flex items-center justify-center gap-2 flex-wrap">
+            <span className="flex items-center justify-center flex-wrap" style={{ gap: '0.5rem' }}>
               <span>{language === 'en' ? 'Your' : 'Ваш'}</span>
-              <img src={triangleHeroLogo} alt="Triangle" className="w-16 h-16 md:w-20 md:h-20 object-contain" />
-              <span className="trusted-text-wrapper">
-                <svg className="trusted-svg" viewBox="0 0 180 50" preserveAspectRatio="xMidYMid meet">
-                  <defs>
-                    <linearGradient id="text-fill-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                      <stop offset="0%" stopColor="hsl(260 10% 25%)" />
-                      <stop offset="50%" stopColor="hsl(260 10% 55%)" />
-                      <stop offset="100%" stopColor="hsl(260 10% 25%)" />
-                    </linearGradient>
-                    <linearGradient id="stroke-glow-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                      <stop offset="0%" stopColor="hsl(45 90% 50%)" />
-                      <stop offset="50%" stopColor="hsl(50 100% 70%)" />
-                      <stop offset="100%" stopColor="hsl(45 90% 50%)" />
-                    </linearGradient>
-                  </defs>
-                  <text 
-                    x="90" 
-                    y="38" 
-                    textAnchor="middle" 
-                    className="trusted-text-base"
-                  >
-                    {language === 'en' ? 'trusted' : 'надежный'}
-                  </text>
-                  <text 
-                    x="90" 
-                    y="38" 
-                    textAnchor="middle" 
-                    className="trusted-text-stroke"
-                  >
-                    {language === 'en' ? 'trusted' : 'надежный'}
-                  </text>
-                </svg>
-              </span>
+              <img src={triangleHeroLogo} alt="Triangle" className="w-16 h-16 md:w-20 md:h-20 object-contain -mx-1" />
+              <svg className="trusted-svg" viewBox="0 0 170 50" preserveAspectRatio="xMidYMid meet">
+                <defs>
+                  <linearGradient id="text-fill-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="hsl(260 10% 20%)" />
+                    <stop offset="50%" stopColor="hsl(260 10% 50%)" />
+                    <stop offset="100%" stopColor="hsl(260 10% 20%)" />
+                  </linearGradient>
+                  <linearGradient id="comet-gradient" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stopColor="transparent" />
+                    <stop offset="70%" stopColor="hsl(45 80% 55% / 0.4)" />
+                    <stop offset="90%" stopColor="hsl(45 90% 65%)" />
+                    <stop offset="100%" stopColor="hsl(50 100% 85%)" />
+                  </linearGradient>
+                  <filter id="comet-glow" x="-50%" y="-50%" width="200%" height="200%">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation="1.5" result="blur" />
+                    <feMerge>
+                      <feMergeNode in="blur" />
+                      <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                  </filter>
+                </defs>
+                <text x="85" y="37" textAnchor="middle" className="trusted-text-base">
+                  {language === 'en' ? 'trusted' : 'надежный'}
+                </text>
+                <text x="85" y="37" textAnchor="middle" className="trusted-comet-stroke" filter="url(#comet-glow)">
+                  {language === 'en' ? 'trusted' : 'надежный'}
+                </text>
+              </svg>
             </span>
             <span>{language === 'en' ? 'companion' : 'помощник'}</span>
           </h1>
