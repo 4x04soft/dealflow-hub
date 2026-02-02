@@ -94,9 +94,9 @@ const Index = () => {
               <svg className="trusted-svg -ml-8" viewBox="0 0 170 50" preserveAspectRatio="xMidYMid meet">
                 <defs>
                   <linearGradient id="text-fill-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor="hsl(260 10% 20%)" />
-                    <stop offset="50%" stopColor="hsl(260 10% 50%)" />
-                    <stop offset="100%" stopColor="hsl(260 10% 20%)" />
+                    <stop offset="0%" stopColor="hsl(175 60% 35%)" />
+                    <stop offset="50%" stopColor="hsl(175 70% 50%)" />
+                    <stop offset="100%" stopColor="hsl(175 60% 35%)" />
                   </linearGradient>
                   <linearGradient id="teal-shine" x1="100%" y1="0%" x2="0%" y2="100%">
                     <stop offset="0%" stopColor="transparent">
