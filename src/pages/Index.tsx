@@ -3,7 +3,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Wallet, Repeat, Shield, Bell, Coins, Flame, Tag, Zap } from 'lucide-react';
 import triangleHeroLogo from '@/assets/triangle-hero-logo.png';
-
+import { Footer } from '@/components/Footer';
 const Index = () => {
   const { language } = useLanguage();
 
@@ -311,21 +311,7 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="py-16 px-4 border-t border-border/50">
-        <div className="container max-w-6xl mx-auto">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-sm">T</span>
-              </div>
-              <span className="text-lg font-bold">Triangle</span>
-            </div>
-            <p className="text-sm text-muted-foreground">
-              © 2024 Triangle. {language === 'en' ? 'All rights reserved.' : 'Все права защищены.'}
-            </p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };
