@@ -154,8 +154,8 @@ const Index = () => {
               </div>
             </div>
 
-            {/* Right - Animated Logo */}
-            <div className="hidden md:flex flex-1 items-center justify-center">
+            {/* Right - Animated Logo with TiltCard */}
+            <div className="hidden md:flex flex-1 items-center justify-center pointer-events-auto">
               <motion.div
                 initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
                 animate={{ opacity: 1, scale: 1, rotate: 0 }}
@@ -166,32 +166,12 @@ const Index = () => {
                 }}
                 className="relative z-30"
               >
-                {/* Background circle to block watercolor with blur and noise */}
-                <div 
-                  className="absolute -inset-8 rounded-full overflow-hidden"
-                  style={{
-                    background: 'radial-gradient(circle, hsl(var(--background) / 0.85) 0%, hsl(var(--background) / 0.6) 40%, hsl(var(--background) / 0.2) 70%, transparent 90%)',
-                    backdropFilter: 'blur(12px)',
-                    WebkitMaskImage: 'radial-gradient(circle, black 0%, black 50%, transparent 100%)',
-                    maskImage: 'radial-gradient(circle, black 0%, black 50%, transparent 100%)'
-                  }}
-                >
-                  {/* Noise overlay */}
-                  <div 
-                    className="absolute inset-0 opacity-25 mix-blend-overlay"
-                    style={{
-                      backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
-                      backgroundSize: '128px 128px'
-                    }}
-                  />
-                </div>
-                
-                {/* Glow effect behind logo */}
+                {/* Background glow effect */}
                 <motion.div
-                  className="absolute -inset-4 rounded-full bg-gradient-to-br from-primary/20 to-accent/10 blur-2xl"
+                  className="absolute -inset-8 rounded-full bg-gradient-to-br from-primary/20 to-accent/10 blur-3xl"
                   animate={{ 
                     scale: [1, 1.2, 1],
-                    opacity: [0.6, 0.9, 0.6]
+                    opacity: [0.4, 0.7, 0.4]
                   }}
                   transition={{ 
                     duration: 4,
@@ -202,7 +182,7 @@ const Index = () => {
                 
                 {/* Rotating ring */}
                 <motion.div
-                  className="absolute -inset-8 rounded-full border border-primary/30"
+                  className="absolute -inset-12 rounded-full border border-primary/20"
                   animate={{ rotate: 360 }}
                   transition={{ 
                     duration: 20,
@@ -210,57 +190,34 @@ const Index = () => {
                     ease: "linear"
                   }}
                   style={{
-                    background: 'conic-gradient(from 0deg, transparent, hsl(174 72% 45% / 0.15), transparent)'
+                    background: 'conic-gradient(from 0deg, transparent, hsl(174 72% 45% / 0.1), transparent)'
                   }}
                 />
                 
-                {/* Second rotating ring */}
-                <motion.div
-                  className="absolute -inset-16 rounded-full border border-accent/15"
-                  animate={{ rotate: -360 }}
-                  transition={{ 
-                    duration: 30,
-                    repeat: Infinity,
-                    ease: "linear"
-                  }}
-                />
+                <TiltCard className="w-56 h-56 lg:w-72 lg:h-72 rounded-3xl bg-background/80 backdrop-blur-sm border border-border/50 flex items-center justify-center shadow-2xl overflow-hidden">
+                  {/* Noise overlay */}
+                  <div 
+                    className="absolute inset-0 opacity-20 mix-blend-overlay pointer-events-none"
+                    style={{
+                      backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
+                      backgroundSize: '128px 128px'
+                    }}
+                  />
+                  <img 
+                    src={triangleHeroLogo} 
+                    alt="Triangle" 
+                    className="w-40 h-40 lg:w-52 lg:h-52 object-contain relative z-10"
+                  />
+                </TiltCard>
                 
-                {/* Logo with float animation */}
-                <motion.img 
-                  src={triangleHeroLogo} 
-                  alt="Triangle" 
-                  className="w-48 h-48 lg:w-64 lg:h-64 object-contain relative z-10"
-                  animate={{ 
-                    y: [0, -15, 0],
-                    rotateY: [0, 5, 0, -5, 0]
-                  }}
-                  transition={{ 
-                    duration: 6,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                  }}
-                />
-                
-                {/* Shadow under logo */}
-                <motion.div
-                  className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-40 lg:w-48 h-8 rounded-[50%] bg-foreground/20 blur-lg z-0"
-                  animate={{
-                    scaleX: [1, 0.8, 1],
-                    scaleY: [1, 0.7, 1],
-                    opacity: [0.5, 0.3, 0.5]
-                  }}
-                  transition={{
-                    duration: 6,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                  }}
-                />
+                {/* Shadow under card */}
+                <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-48 lg:w-56 h-8 rounded-[50%] bg-foreground/15 blur-xl z-0" />
                 
                 {/* Sparkle particles */}
                 {[...Array(6)].map((_, i) => (
                   <motion.div
                     key={i}
-                    className="absolute w-2 h-2 rounded-full bg-primary/60"
+                    className="absolute w-2 h-2 rounded-full bg-primary/60 pointer-events-none"
                     style={{
                       top: `${20 + Math.random() * 60}%`,
                       left: `${20 + Math.random() * 60}%`,
