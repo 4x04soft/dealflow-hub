@@ -78,7 +78,7 @@ export const WalletModal = ({ isConnected, onConnect, onDisconnect }: WalletModa
           size="default" 
           className="rounded-full px-6 font-semibold bg-foreground text-background hover:bg-foreground/90"
         >
-          {language === 'en' ? 'Download' : 'Скачать'}
+          {language === 'en' ? 'Connect' : 'Подключить'}
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-md rounded-3xl border-border/50 shadow-2xl">
