@@ -437,7 +437,7 @@ const Index = () => {
       <section className="py-24 px-4 bg-secondary/30">
         <ScrollReveal direction="up" parallax parallaxSpeed={15} className="container max-w-4xl mx-auto text-center">
           <p className="text-muted-foreground text-sm uppercase tracking-wider mb-4">
-            {language === 'en' ? 'Download Triangle' : 'Скачать Triangle'}
+            {language === 'en' ? 'Connect Wallet' : 'Подключить кошелёк'}
           </p>
           <h2 className="section-title mb-4">
             {language === 'en' ? 'to get started' : 'чтобы начать'}
