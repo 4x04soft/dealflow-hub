@@ -7,7 +7,9 @@ import { Footer } from '@/components/Footer';
 import WatercolorParticles from '@/components/WatercolorParticles';
 import ScrollReveal from '@/components/ScrollReveal';
 import TiltCard from '@/components/TiltCard';
-import { motion } from 'framer-motion';
+import AnimatedIcon from '@/components/AnimatedIcon';
+import FloatingElements from '@/components/FloatingElements';
+import { motion, useInView } from 'framer-motion';
 
 const Index = () => {
   const { language } = useLanguage();
@@ -270,10 +272,21 @@ const Index = () => {
 
               <ul className="space-y-4">
                 {walletFeatures.map((feature, index) => (
-                  <li key={index} className="flex items-start gap-4 group">
-                    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+                  <motion.li 
+                    key={index} 
+                    className="flex items-start gap-4 group"
+                    initial={{ opacity: 0, x: -30 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: false, margin: "-10%" }}
+                    transition={{ 
+                      duration: 0.5, 
+                      delay: index * 0.1,
+                      ease: [0.22, 1, 0.36, 1]
+                    }}
+                  >
+                    <AnimatedIcon className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary shrink-0">
                       {feature.icon}
-                    </div>
+                    </AnimatedIcon>
                     <div>
                       <p className="font-medium text-foreground group-hover:text-primary transition-colors">
                         {feature.title[language]}
@@ -282,7 +295,7 @@ const Index = () => {
                         <p className="text-sm text-muted-foreground">{feature.description[language]}</p>
                       )}
                     </div>
-                  </li>
+                  </motion.li>
                 ))}
               </ul>
             </ScrollReveal>
@@ -291,8 +304,9 @@ const Index = () => {
       </section>
 
       {/* Feature Section 2 - Your Tools */}
-      <section className="py-24 px-4 bg-secondary/30">
-        <div className="container max-w-6xl mx-auto">
+      <section className="py-24 px-4 bg-secondary/30 relative overflow-hidden">
+        <FloatingElements count={6} className="opacity-50" />
+        <div className="container max-w-6xl mx-auto relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left - Text content */}
             <ScrollReveal direction="left" parallax parallaxSpeed={20} className="space-y-8">
@@ -308,10 +322,21 @@ const Index = () => {
 
               <ul className="space-y-4">
                 {toolsFeatures.map((feature, index) => (
-                  <li key={index} className="flex items-start gap-4 group">
-                    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+                  <motion.li 
+                    key={index} 
+                    className="flex items-start gap-4 group"
+                    initial={{ opacity: 0, x: -30 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: false, margin: "-10%" }}
+                    transition={{ 
+                      duration: 0.5, 
+                      delay: index * 0.1,
+                      ease: [0.22, 1, 0.36, 1]
+                    }}
+                  >
+                    <AnimatedIcon className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary shrink-0">
                       {feature.icon}
-                    </div>
+                    </AnimatedIcon>
                     <div>
                       <p className="font-medium text-foreground group-hover:text-primary transition-colors">
                         {feature.title[language]}
@@ -320,7 +345,7 @@ const Index = () => {
                         <p className="text-sm text-muted-foreground">{feature.description[language]}</p>
                       )}
                     </div>
-                  </li>
+                  </motion.li>
                 ))}
               </ul>
             </ScrollReveal>
@@ -341,8 +366,9 @@ const Index = () => {
       </section>
 
       {/* Feature Section 3 - Your Security */}
-      <section className="py-24 px-4">
-        <div className="container max-w-6xl mx-auto">
+      <section className="py-24 px-4 relative overflow-hidden">
+        <FloatingElements count={5} className="opacity-30" />
+        <div className="container max-w-6xl mx-auto relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left - Feature card visual */}
             <ScrollReveal direction="left" parallax parallaxSpeed={30}>
@@ -370,10 +396,21 @@ const Index = () => {
 
               <ul className="space-y-4">
                 {securityFeatures.map((feature, index) => (
-                  <li key={index} className="flex items-start gap-4 group">
-                    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+                  <motion.li 
+                    key={index} 
+                    className="flex items-start gap-4 group"
+                    initial={{ opacity: 0, x: 30 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: false, margin: "-10%" }}
+                    transition={{ 
+                      duration: 0.5, 
+                      delay: index * 0.1,
+                      ease: [0.22, 1, 0.36, 1]
+                    }}
+                  >
+                    <AnimatedIcon className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary shrink-0">
                       {feature.icon}
-                    </div>
+                    </AnimatedIcon>
                     <div>
                       <p className="font-medium text-foreground group-hover:text-primary transition-colors">
                         {feature.title[language]}
@@ -382,7 +419,7 @@ const Index = () => {
                         <p className="text-sm text-muted-foreground">{feature.description[language]}</p>
                       )}
                     </div>
-                  </li>
+                  </motion.li>
                 ))}
               </ul>
             </ScrollReveal>
@@ -391,9 +428,20 @@ const Index = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 px-4 bg-secondary/30">
-        <ScrollReveal direction="up" parallax parallaxSpeed={15} className="container max-w-4xl mx-auto text-center">
-          <div className="flex justify-center mb-8">
+      <section className="py-24 px-4 bg-secondary/30 relative overflow-hidden">
+        <FloatingElements count={8} />
+        
+        <div className="container max-w-4xl mx-auto text-center relative z-10">
+          <motion.div 
+            className="flex justify-center mb-8"
+            initial={{ opacity: 0, scale: 0.5, rotate: -180 }}
+            whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+            viewport={{ once: false, margin: "-10%" }}
+            transition={{ 
+              duration: 0.8, 
+              ease: [0.22, 1, 0.36, 1]
+            }}
+          >
             <TiltCard className="w-24 h-24 rounded-2xl bg-background/80 backdrop-blur-sm border border-border/50 flex items-center justify-center shadow-xl">
               <img 
                 src={triangleHeroLogo} 
@@ -401,26 +449,60 @@ const Index = () => {
                 className="w-16 h-16 object-contain"
               />
             </TiltCard>
-          </div>
-          <p className="text-muted-foreground text-sm uppercase tracking-wider mb-4">
+          </motion.div>
+          
+          <motion.p 
+            className="text-muted-foreground text-sm uppercase tracking-wider mb-4"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+          >
             {language === 'en' ? 'Connect Wallet' : 'Подключить кошелёк'}
-          </p>
-          <h2 className="section-title mb-4">
+          </motion.p>
+          
+          <motion.h2 
+            className="section-title mb-4"
+            initial={{ opacity: 0, y: 20, filter: 'blur(10px)' }}
+            whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+            viewport={{ once: false }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
             {language === 'en' ? 'to get started' : 'чтобы начать'}
-          </h2>
-          <p className="text-lg text-muted-foreground mb-8">
+          </motion.h2>
+          
+          <motion.p 
+            className="text-lg text-muted-foreground mb-8"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+          >
             {language === 'en' ? 'Trusted by more than 15 million people' : 'Доверяют более 15 миллионов человек'}
-          </p>
-          <Link to="/make-deal">
-            <Button 
-              size="lg" 
-              className="rounded-full px-8 py-6 text-base font-semibold bg-foreground text-background hover:bg-foreground/90 shadow-lg gap-2 group"
-            >
-              {language === 'en' ? 'Make a Deal' : 'Создать сделку'}
-              <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
-          </Link>
-        </ScrollReveal>
+          </motion.p>
+          
+          <motion.div
+            initial={{ opacity: 0, y: 30, scale: 0.9 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: false }}
+            transition={{ duration: 0.6, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <Link to="/make-deal">
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <Button 
+                  size="lg" 
+                  className="rounded-full px-8 py-6 text-base font-semibold bg-foreground text-background hover:bg-foreground/90 shadow-lg gap-2 group"
+                >
+                  {language === 'en' ? 'Make a Deal' : 'Создать сделку'}
+                  <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </motion.div>
+            </Link>
+          </motion.div>
+        </div>
       </section>
 
       {/* Footer */}
