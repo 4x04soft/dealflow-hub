@@ -436,6 +436,15 @@ const Index = () => {
       {/* CTA Section */}
       <section className="py-24 px-4 bg-secondary/30">
         <ScrollReveal direction="up" parallax parallaxSpeed={15} className="container max-w-4xl mx-auto text-center">
+          <div className="flex justify-center mb-8">
+            <TiltCard className="w-24 h-24 rounded-2xl bg-background/80 backdrop-blur-sm border border-border/50 flex items-center justify-center shadow-xl">
+              <img 
+                src={triangleHeroLogo} 
+                alt="Triangle Logo" 
+                className="w-16 h-16 object-contain"
+              />
+            </TiltCard>
+          </div>
           <p className="text-muted-foreground text-sm uppercase tracking-wider mb-4">
             {language === 'en' ? 'Connect Wallet' : 'Подключить кошелёк'}
           </p>
@@ -450,7 +459,7 @@ const Index = () => {
               size="lg" 
               className="rounded-full px-8 py-6 text-base font-semibold bg-foreground text-background hover:bg-foreground/90 shadow-lg gap-2 group"
             >
-              {language === 'en' ? 'Download Triangle' : 'Скачать Triangle'}
+              {language === 'en' ? 'Make a Deal' : 'Создать сделку'}
               <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Button>
           </Link>
